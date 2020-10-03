@@ -5,3 +5,4 @@
 .\simc_vs2019.exe .\frost\stats.simc
 .\simc_vs2019.exe .\frost\races.simc
 .\simc_vs2019.exe .\frost\covenant-abilities.simc
+.\simc_vs2019.exe .\frost\relics.simc

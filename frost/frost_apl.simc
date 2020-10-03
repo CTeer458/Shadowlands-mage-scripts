@@ -35,7 +35,7 @@ actions+=/call_action_list,name=aoe,if=active_enemies>=5
 actions+=/call_action_list,name=st,if=active_enemies<5
 actions+=/call_action_list,name=movement
 
-actions.cds=mirrors_of_torment,if=conduit.siphoned_malice.enabled|soulbind.wasteland_propriety.enabled
+actions.cds=mirrors_of_torment,if=soulbind.wasteland_propriety.enabled
 actions.cds+=/deathborne
 actions.cds+=/rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down
 actions.cds+=/icy_veins,if=buff.rune_of_power.down
@@ -60,7 +60,7 @@ actions.essences+=/reaping_flames
 actions.essences+=/the_unbound_force,if=buff.reckless_force.up
 actions.essences+=/worldvein_resonance
 
-actions.st=flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|buff.expanded_potential.react&buff.fingers_of_frost.react=0))
+actions.st=flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
 actions.st+=/frozen_orb
 actions.st+=/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
 actions.st+=/ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
@@ -83,15 +83,16 @@ actions.st+=/frostbolt
 
 actions.aoe=frozen_orb
 actions.aoe+=/blizzard
-actions.aoe+=/flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.frostbolt))
+actions.aoe+=/flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&buff.fingers_of_frost.react=0)
 actions.aoe+=/ice_nova
 actions.aoe+=/comet_storm
 actions.aoe+=/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time|remaining_winters_chill&debuff.winters_chill.remains>travel_time
 actions.aoe+=/radiant_spark
 actions.aoe+=/shifting_power
+actions.aoe+=/mirrors_of_torment
 actions.aoe+=/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
 actions.aoe+=/fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
-actions.aoe+=/arcane_explosion,if=mana.pct>30&!runeforge.cold_front.equipped
+actions.aoe+=/arcane_explosion,if=mana.pct>30&!runeforge.cold_front.equipped&(!runeforge.freezing_winds.equipped|buff.freezing_winds.up)
 actions.aoe+=/ebonbolt
 actions.aoe+=/frostbolt
 
