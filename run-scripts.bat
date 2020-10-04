@@ -6,3 +6,4 @@
 .\simc_vs2019.exe .\frost\races.simc
 .\simc_vs2019.exe .\frost\covenant-abilities.simc
 .\simc_vs2019.exe .\frost\relics.simc
+.\simc_vs2019.exe .\frost\soulbinds-week-4-2-target.simc
