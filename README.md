@@ -1,3 +1,6 @@
 # Shadowlands-mage-scripts
 
-I'm sure you can figure it out
+Run run-scripts.bat with your simc executable in the top level directory
+
+* inputs are in ./spec/
+* results go to ./spec/html or ./spec/txt
