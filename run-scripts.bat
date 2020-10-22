@@ -1,7 +1,6 @@
 .\simc_vs2019.exe .\frost\legendaries.simc
-.\simc_vs2019.exe .\frost\legendaries-2-target.simc
-.\simc_vs2019.exe .\frost\legendaries-3-target.simc
-.\simc_vs2019.exe .\frost\soulbinds-13.simc
+.\simc_vs2019.exe .\frost\legendaries-cov.simc
+.\simc_vs2019.exe .\frost\soulbinds-16.simc
 .\simc_vs2019.exe .\frost\soulbinds-25.simc
 .\simc_vs2019.exe .\frost\soulbinds-max.simc
 .\simc_vs2019.exe .\frost\races-alli.simc
