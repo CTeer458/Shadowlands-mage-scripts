@@ -8,3 +8,14 @@
 .\simc_vs2019.exe .\frost\covenant-abilities.simc
 .\simc_vs2019.exe .\frost\relics.simc
 .\simc_vs2019.exe .\frost\stats.simc
+
+.\simc_vs2019.exe .\fire\legendaries.simc
+.\simc_vs2019.exe .\fire\legendaries-cov.simc
+.\simc_vs2019.exe .\fire\soulbinds-16.simc
+.\simc_vs2019.exe .\fire\soulbinds-25.simc
+.\simc_vs2019.exe .\fire\soulbinds-max.simc
+.\simc_vs2019.exe .\fire\races-alli.simc
+.\simc_vs2019.exe .\fire\races-horde.simc
+.\simc_vs2019.exe .\fire\covenant-abilities.simc
+.\simc_vs2019.exe .\fire\relics.simc
+.\simc_vs2019.exe .\fire\stats.simc
