@@ -9,29 +9,29 @@
  * Beta! Beta! Beta! Beta! Beta! Beta! 
 
 DPS Ranking:
-  79663 100.0%  Raid
-   5726   7.2%  fire
-   5726   7.2%  goblin
-   5722   7.2%  troll
-   5719   7.2%  orc
-   5704   7.2%  undead
-   5703   7.2%  nightborne
-   5686   7.1%  highmountain_tauren
-   5683   7.1%  Zandalari Troll (Bwonsamdi)
-   5682   7.1%  maghar_orc
-   5675   7.1%  blood_elf
-   5674   7.1%  Zandalari Troll (Kimbul)
-   5663   7.1%  Zandalari Troll (Pa'ku)
-   5661   7.1%  vulpera
-   5638   7.1%  pandaren
+  79644 100.0%  Raid
+   5735   7.2%  orc
+   5733   7.2%  troll
+   5721   7.2%  fire
+   5707   7.2%  goblin
+   5700   7.2%  undead
+   5700   7.2%  nightborne
+   5685   7.1%  highmountain_tauren
+   5684   7.1%  Zandalari Troll (Bwonsamdi)
+   5678   7.1%  maghar_orc
+   5673   7.1%  Zandalari Troll (Kimbul)
+   5669   7.1%  blood_elf
+   5659   7.1%  Zandalari Troll (Pa'ku)
+   5655   7.1%  vulpera
+   5646   7.1%  pandaren
 
 HPS Ranking:
       0 100.0%%  Raid
 
 Player: Zandalari Troll (Bwonsamdi) zandalari_troll mage fire 60
-  DPS=5682.673074438686 DPS-Error=10.94974734882766/0.19% DPS-Range=911.6331452766399/16.04%
-  DPR=8.622987141793965 RPS-Out=652.4008751985815 RPS-In=648.7522516345311 Resource=mana Waiting=0.0 ApM=46.36972839308908
-  Talents: 3031022
+  DPS=5683.65724949118 DPS-Error=11.232228082365049/0.20% DPS-Range=790.198195104917/13.90%
+  DPR=8.20349366377272 RPS-Out=685.8085958707208 RPS-In=682.4494238136551 Resource=mana Waiting=0 ApM=49.5090131493467
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -73,6 +73,10 @@ Player: Zandalari Troll (Bwonsamdi) zandalari_troll mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -133,55 +137,57 @@ Player: Zandalari Troll (Bwonsamdi) zandalari_troll mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.037sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.0|  4.089sec  DPE= 155| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   125  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|44.85%  UpTime= 67.96%
-    conflagration_flare_up      Count=  29.6|  9.665sec  DPE= 297| 0.52%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   495|43.08%
-    dragons_breath              Count=   0.2|  0.000sec  DPE=4272| 0.05%  DPET=3635  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
-    embrace_of_bwonsamdi        Count=  20.0| 14.658sec  DPE= 832| 0.98%  DPET=   0  DPR=   0  pDPS=  56  Miss= 0.00%  Hit=   613|   613|   613  Crit=  1226|  1226|  1226|35.68%
-    fire_blast                  Count=  37.9|  7.949sec  DPE=5119|11.41%  DPET=   0  DPR=  10  pDPS= 648  Miss= 0.00%  Crit=  5120|  4149|  5809|100.00%
-    fireball                    Count=  58.0|  4.089sec  DPE=3454|11.25%  DPET=1831  DPR=   3  pDPS= 638  Miss= 0.00%  Hit=  2201|  1958|  2741  Crit=  4507|  3916|  5482|47.61%
-    ignite                      Count= 221.3|  1.353sec  DPE=1439|18.73%  DPET=   0  DPR=   0  pDPS=1064  TickCount=   298  MissTick= 0.00%  Tick=  1068|   191|  3085  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.715sec  DPE=4893| 0.00%  DPET=5631  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.392sec  DPE=4358| 0.00%  DPET=3575  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  13.0| 22.399sec  DPE=4368| 3.33%  DPET=   0  DPR=   0  pDPS= 189  Miss= 0.00%  Hit=  2560|  2357|  3300  Crit=  5903|  4715|  6601|54.06%
-    pyroblast                   Count=  89.2|  3.357sec  DPE=9332|46.27%  DPET=6158  DPR=   9  pDPS=2632  Miss= 0.00%  Hit=  5682|  3570| 16994  Crit= 10400|  7140| 33988|64.95%
-    pyroblast_dot               Count=  89.9|  3.350sec  DPE= 508| 2.69%  DPET=   0  DPR=   0  pDPS= 153  TickCount=   169  MissTick= 0.00%  Tick=   180|     0|   227  CritTick=   386|     0|   455|43.62%  UpTime= 92.16%
-    rune_of_power               Count=   5.2| 59.390sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.6| 10.475sec  DPE=2545| 3.39%  DPET=1962  DPR=   5  pDPS= 193  Miss= 0.00%  Crit=  2545|  1298|  3245|100.00%
-   mirror_image (DPS=129.6900822887186)
-    frostbolt                   Count= 211.9|  3.856sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.75%
+    combustion                  Count=   3.0|121.939sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.4|  3.022sec  DPE=  124| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   121|39.61%  UpTime= 65.11%
+    conflagration_flare_up      Count=  29.8|  9.677sec  DPE=  298| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   495|43.56%
+    dragons_breath              Count=   0.8|173.046sec  DPE= 4272| 0.19%  DPET=3771  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
+    embrace_of_bwonsamdi        Count=  20.3| 14.961sec  DPE=  833| 0.99%  DPET=   0  DPR=   0  pDPS=  56  Miss= 0.00%  Hit=   613|   613|   613  Crit=  1226|  1226|  1226|35.92%
+    fire_blast                  Count=  38.2|  7.931sec  DPE= 5119|11.47%  DPET=   0  DPR=  10  pDPS= 652  Miss= 0.00%  Crit=  5119|  4149|  5809|100.00%
+    fireball                    Count=  65.4|  3.022sec  DPE= 3303|12.19%  DPET=1762  DPR=   3  pDPS= 691  Miss= 0.00%  Hit=  2198|  1958|  2741  Crit=  4391|  3916|  5482|44.78%
+    ignite                      Count= 237.3|  1.267sec  DPE= 1357|18.88%  DPET=   0  DPR=   0  pDPS=1072  TickCount=   299  MissTick= 0.00%  Tick=  1076|   191|  3192  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.470sec  DPE=19287| 0.00%  DPET=14763  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.427sec  DPE=  497| 1.30%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   280|   216|   303  CritTick=   594|   432|   605|69.27%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.579sec  DPE=15545| 5.22%  DPET=   0  DPR=   0  pDPS= 297  Miss= 0.00%  Hit=  8741|  6810|  9535  Crit= 18705| 13621| 19069|69.01%
+    mirror_image                Count=   3.0|120.596sec  DPE= 4863| 0.00%  DPET=5592  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.0| 21.796sec  DPE= 5100| 0.00%  DPET=4177  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.785sec  DPE= 5112| 4.20%  DPET=   0  DPR=   0  pDPS= 239  Miss= 0.00%  Hit=  2474|  2357|  3300  Crit=  6208|  4715|  6601|70.64%
+    pyroblast                   Count=  85.7|  3.506sec  DPE= 7883|36.97%  DPET=6296  DPR=   8  pDPS=2103  Miss= 0.00%  Hit=  4094|  3570|  4998  Crit=  8862|  7140|  9997|67.25%
+    pyroblast_dot               Count=  86.4|  3.495sec  DPE=  515| 2.61%  DPET=   0  DPR=   0  pDPS= 148  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   227  CritTick=   383|    48|   455|44.13%  UpTime= 88.78%
+    rune_of_power               Count=   5.3| 58.684sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.6|  8.406sec  DPE= 2557| 4.13%  DPET=1971  DPR=   5  pDPS= 235  Miss= 0.00%  Crit=  2557|  1298|  3245|100.00%
+   mirror_image (DPS=128.63270524218834)
+    frostbolt                   Count= 212.7|  3.861sec  DPE=   68| 0.85%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    54  Crit=   101|    78|   109|35.62%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.60%
-    fireball      : start= 16.7 refresh= 13.6 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.07%
-    firestorm     : start=  6.0 refresh=  0.8 interval= 46.4 trigger= 40.2 duration=  5.3 uptime= 10.78%
-    heating_up    : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.56%  benefit= 46.87%
-    hot_streak    : start= 70.3 refresh=  0.0 interval=  4.3 trigger=  4.3 duration=  1.0 uptime= 19.46%  benefit= 81.67%
-    pyroclasm     : start=  9.0 refresh=  1.5 interval= 32.6 trigger= 27.5 duration=  7.9 uptime= 23.66%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.74%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.6 refresh= 16.5 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.66%
+    firestorm     : start=  6.5 refresh=  0.8 interval= 43.2 trigger= 37.6 duration=  5.3 uptime= 11.63%
+    heating_up    : start= 84.5 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.41%  benefit= 47.10%
+    hot_streak    : start= 75.2 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.77%  benefit= 86.81%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.15%
   Up-Times:
-     22.99% : Mana Cap                      
+     19.29% : Mana Cap                      
   Procs:
-     79.71789 |   3.76309sec : Heating Up generated
-      9.01322 |  29.65487sec : Heating Up removed
-     24.55349 |  11.67500sec : Heating Up converted with Fire Blast
-     70.31351 |   4.25468sec : Hot Streak procs
-    221.33664 |   1.35173sec : Hot Streak spells used
-    153.50392 |   1.94710sec : Hot Streak spell crits
-      3.47253 |  58.04820sec : Hot Streak spell crits wasted
+     84.45766 |   3.57131sec : Heating Up generated
+      8.82193 |  29.15899sec : Heating Up removed
+     24.98086 |  11.54794sec : Heating Up converted with Fire Blast
+     75.19200 |   4.00744sec : Hot Streak procs
+    231.64617 |   1.29739sec : Hot Streak spells used
+    163.09223 |   1.84286sec : Hot Streak spell crits
+      3.44258 |  63.71487sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194338.3 : mana_regen (mana)           (overflow=35.03%)
+    205234.4 : mana_regen (mana)           (overflow=31.67%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: Zandalari Troll (Kimbul) zandalari_troll mage fire 60
-  DPS=5674.414065096095 DPS-Error=10.942574414411927/0.19% DPS-Range=1086.7092950634706/19.15%
-  DPR=8.601951858605897 RPS-Out=653.1834702396364 RPS-In=649.4610248645945 Resource=mana Waiting=0.0 ApM=46.405141680585636
-  Talents: 3031022
+  DPS=5673.077889790724 DPS-Error=11.114456658953152/0.20% DPS-Range=771.0555981290795/13.59%
+  DPR=8.186155282253091 RPS-Out=685.9195005657991 RPS-In=682.6515442450751 Resource=mana Waiting=0 ApM=49.50993896245344
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -223,6 +229,10 @@ Player: Zandalari Troll (Kimbul) zandalari_troll mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -283,55 +293,57 @@ Player: Zandalari Troll (Kimbul) zandalari_troll mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.114sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.1|  4.100sec  DPE= 155| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   125  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|44.87%  UpTime= 68.02%
-    conflagration_flare_up      Count=  29.8|  9.930sec  DPE= 296| 0.52%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   199|   177|   248  Crit=   424|   354|   495|42.93%
-    dragons_breath              Count=   0.2|121.900sec  DPE=4272| 0.05%  DPET=3676  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
-    embrace_of_kimbul           Count=  16.5| 17.488sec  DPE= 819| 0.80%  DPET=   0  DPR=   0  pDPS=  45  TickCount=    46  MissTick= 0.00%  Tick=   293|     0|   627  UpTime= 30.10%
-    fire_blast                  Count=  37.9|  7.944sec  DPE=5123|11.44%  DPET=   0  DPR=  10  pDPS= 649  Miss= 0.00%  Crit=  5123|  4149|  5809|100.00%
-    fireball                    Count=  58.1|  4.107sec  DPE=3446|11.27%  DPET=1826  DPR=   3  pDPS= 638  Miss= 0.00%  Hit=  2200|  1958|  2741  Crit=  4507|  3916|  5482|47.30%
-    ignite                      Count= 221.5|  1.351sec  DPE=1439|18.77%  DPET=   0  DPR=   0  pDPS=1065  TickCount=   298  MissTick= 0.00%  Tick=  1069|   185|  3085  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.660sec  DPE=4888| 0.00%  DPET=5626  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.403sec  DPE=4372| 0.00%  DPET=3586  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  13.0| 22.313sec  DPE=4382| 3.35%  DPET=   0  DPR=   0  pDPS= 190  Miss= 0.00%  Hit=  2561|  2357|  3300  Crit=  5907|  4715|  6601|54.41%
-    pyroblast                   Count=  89.3|  3.336sec  DPE=9327|46.35%  DPET=6170  DPR=   9  pDPS=2632  Miss= 0.00%  Hit=  5654|  3570| 16994  Crit= 10391|  7140| 33988|65.21%
-    pyroblast_dot               Count=  90.0|  3.329sec  DPE= 507| 2.69%  DPET=   0  DPR=   0  pDPS= 153  TickCount=   169  MissTick= 0.00%  Tick=   180|     0|   227  CritTick=   386|     0|   455|43.72%  UpTime= 92.08%
-    rune_of_power               Count=   5.2| 59.502sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.5| 11.166sec  DPE=2543| 3.38%  DPET=1961  DPR=   5  pDPS= 192  Miss= 0.00%  Crit=  2543|  1298|  3245|100.00%
-   mirror_image (DPS=129.62629958844633)
-    frostbolt                   Count= 211.9|  3.855sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.69%
+    combustion                  Count=   3.0|121.903sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.4|  3.020sec  DPE=  124| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   121|39.47%  UpTime= 65.11%
+    conflagration_flare_up      Count=  30.1|  9.670sec  DPE=  298| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   495|43.39%
+    dragons_breath              Count=   0.8|177.922sec  DPE= 4272| 0.20%  DPET=3796  DPR=   2  pDPS=  12  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
+    embrace_of_kimbul           Count=  16.7| 17.293sec  DPE=  820| 0.81%  DPET=   0  DPR=   0  pDPS=  46  TickCount=    47  MissTick= 0.00%  Tick=   293|     0|   627  UpTime= 30.40%
+    fire_blast                  Count=  38.2|  7.939sec  DPE= 5119|11.49%  DPET=   0  DPR=  10  pDPS= 652  Miss= 0.00%  Crit=  5119|  4149|  5809|100.00%
+    fireball                    Count=  65.4|  3.020sec  DPE= 3302|12.21%  DPET=1762  DPR=   3  pDPS= 691  Miss= 0.00%  Hit=  2198|  1958|  2741  Crit=  4393|  3916|  5482|44.69%
+    ignite                      Count= 237.3|  1.268sec  DPE= 1357|18.91%  DPET=   0  DPR=   0  pDPS=1072  TickCount=   299  MissTick= 0.00%  Tick=  1076|   191|  3157  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.284sec  DPE=19233| 0.00%  DPET=14721  DPR=  38  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.411sec  DPE=  497| 1.30%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   279|   216|   303  CritTick=   594|   432|   605|69.18%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.374sec  DPE=15493| 5.22%  DPET=   0  DPR=   0  pDPS= 297  Miss= 0.00%  Hit=  8771|  6810|  9535  Crit= 18671| 13621| 19069|68.72%
+    mirror_image                Count=   3.0|120.544sec  DPE= 4866| 0.00%  DPET=5596  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.768sec  DPE= 5081| 0.00%  DPET=4161  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.757sec  DPE= 5093| 4.19%  DPET=   0  DPR=   0  pDPS= 238  Miss= 0.00%  Hit=  2475|  2357|  3300  Crit=  6208|  4715|  6601|70.17%
+    pyroblast                   Count=  85.7|  3.501sec  DPE= 7885|37.06%  DPET=6296  DPR=   8  pDPS=2104  Miss= 0.00%  Hit=  4095|  3570|  4998  Crit=  8861|  7140|  9997|67.33%
+    pyroblast_dot               Count=  86.4|  3.488sec  DPE=  514| 2.61%  DPET=   0  DPR=   0  pDPS= 148  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   227  CritTick=   384|    48|   455|43.95%  UpTime= 88.74%
+    rune_of_power               Count=   5.3| 58.698sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.5|  8.541sec  DPE= 2561| 4.13%  DPET=1973  DPR=   5  pDPS= 234  Miss= 0.00%  Crit=  2560|  1298|  3245|100.00%
+   mirror_image (DPS=128.6917569132231)
+    frostbolt                   Count= 212.7|  3.859sec  DPE=   68| 0.85%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    54  Crit=   101|    78|   109|35.69%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.61%
-    fireball      : start= 16.7 refresh= 13.9 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.19%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 45.8 trigger= 39.7 duration=  5.4 uptime= 10.93%
-    heating_up    : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.52%  benefit= 46.89%
-    hot_streak    : start= 70.4 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.47%  benefit= 81.63%
-    pyroclasm     : start=  8.9 refresh=  1.5 interval= 33.0 trigger= 27.9 duration=  7.9 uptime= 23.39%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.76%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.6 refresh= 16.6 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.73%
+    firestorm     : start=  6.5 refresh=  0.8 interval= 43.1 trigger= 37.5 duration=  5.3 uptime= 11.65%
+    heating_up    : start= 84.4 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.35%  benefit= 47.10%
+    hot_streak    : start= 75.1 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.73%  benefit= 86.72%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.17%
   Up-Times:
-     22.83% : Mana Cap                      
+     19.26% : Mana Cap                      
   Procs:
-     79.74226 |   3.76223sec : Heating Up generated
-      8.92482 |  30.01276sec : Heating Up removed
-     24.52747 |  11.73949sec : Heating Up converted with Fire Blast
-     70.41140 |   4.24956sec : Hot Streak procs
-    221.52292 |   1.35049sec : Hot Streak spells used
-    153.66171 |   1.94499sec : Hot Streak spell crits
-      3.50805 |  58.59541sec : Hot Streak spell crits wasted
+     84.38805 |   3.57359sec : Heating Up generated
+      8.83121 |  29.26718sec : Heating Up removed
+     24.93677 |  11.55373sec : Heating Up converted with Fire Blast
+     75.13051 |   4.00900sec : Hot Streak procs
+    231.59687 |   1.29761sec : Hot Streak spells used
+    162.99130 |   1.84374sec : Hot Streak spell crits
+      3.47274 |  64.00582sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194533.3 : mana_regen (mana)           (overflow=34.96%)
+    205295.3 : mana_regen (mana)           (overflow=31.65%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: Zandalari Troll (Pa'ku) zandalari_troll mage fire 60
-  DPS=5663.063643575171 DPS-Error=10.745305499475311/0.19% DPS-Range=1049.927038413401/18.54%
-  DPR=8.586105760528495 RPS-Out=652.9683427922275 RPS-In=649.1315833803076 Resource=mana Waiting=0.0 ApM=46.38313248788918
-  Talents: 3031022
+  DPS=5658.524988519406 DPS-Error=11.240038617994209/0.20% DPS-Range=860.6336121001018/15.21%
+  DPR=8.152841167314909 RPS-Out=686.943681315131 RPS-In=683.558885451559 Resource=mana Waiting=0 ApM=49.55414653830031
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -373,6 +385,10 @@ Player: Zandalari Troll (Pa'ku) zandalari_troll mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -433,55 +449,57 @@ Player: Zandalari Troll (Pa'ku) zandalari_troll mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.123sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.5|  4.127sec  DPE= 158| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|45.86%  UpTime= 67.90%
-    conflagration_flare_up      Count=  30.0|  9.509sec  DPE= 298| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   495|43.65%
-    dragons_breath              Count=   0.2|122.061sec  DPE=4272| 0.05%  DPET=3656  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
-    fire_blast                  Count=  37.9|  7.946sec  DPE=5123|11.46%  DPET=   0  DPR=  10  pDPS= 649  Miss= 0.00%  Crit=  5123|  4149|  5809|100.00%
-    fireball                    Count=  57.5|  4.127sec  DPE=3467|11.23%  DPET=1837  DPR=   3  pDPS= 635  Miss= 0.00%  Hit=  2202|  1958|  2741  Crit=  4507|  3916|  5482|48.09%
-    ignite                      Count= 221.3|  1.354sec  DPE=1448|18.92%  DPET=   0  DPR=   0  pDPS=1071  TickCount=   298  MissTick= 0.00%  Tick=  1075|   189|  3126  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.624sec  DPE=4921| 0.00%  DPET=5663  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.386sec  DPE=4378| 0.00%  DPET=3591  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.9| 22.363sec  DPE=4387| 3.35%  DPET=   0  DPR=   0  pDPS= 189  Miss= 0.00%  Hit=  2563|  2357|  3300  Crit=  5905|  4715|  6601|54.58%
-    pyroblast                   Count=  89.8|  3.327sec  DPE=9368|46.95%  DPET=6180  DPR=   9  pDPS=2661  Miss= 0.00%  Hit=  5688|  3570| 16994  Crit= 10407|  7140| 33988|65.64%
-    pyroblast_dot               Count=  90.5|  3.320sec  DPE= 508| 2.72%  DPET=   0  DPR=   0  pDPS= 154  TickCount=   170  MissTick= 0.00%  Tick=   180|     0|   227  CritTick=   385|     0|   455|44.45%  UpTime= 92.42%
-    rune_of_power               Count=   5.2| 59.379sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.5| 10.878sec  DPE=2544| 3.38%  DPET=1961  DPR=   5  pDPS= 192  Miss= 0.00%  Crit=  2544|  1298|  3245|100.00%
-   mirror_image (DPS=130.54495489755902)
-    frostbolt                   Count= 211.9|  3.866sec  DPE=  69| 0.87%  DPET=  44  DPR=   0  pDPS= 131  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|36.60%
+    combustion                  Count=   3.0|121.941sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.0|  3.054sec  DPE=  125| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   121|40.39%  UpTime= 65.12%
+    conflagration_flare_up      Count=  29.8|  9.800sec  DPE=  298| 0.52%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   354|   495|43.61%
+    dragons_breath              Count=   0.8|175.677sec  DPE= 4272| 0.20%  DPET=3769  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
+    fire_blast                  Count=  38.2|  7.935sec  DPE= 5118|11.52%  DPET=   0  DPR=  10  pDPS= 652  Miss= 0.00%  Crit=  5119|  4149|  5809|100.00%
+    fireball                    Count=  65.0|  3.054sec  DPE= 3319|12.23%  DPET=1771  DPR=   3  pDPS= 690  Miss= 0.00%  Hit=  2198|  1958|  2741  Crit=  4390|  3916|  5482|45.42%
+    ignite                      Count= 237.5|  1.265sec  DPE= 1365|19.08%  DPET=   0  DPR=   0  pDPS=1079  TickCount=   299  MissTick= 0.00%  Tick=  1083|   191|  3303  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.520sec  DPE=19270| 0.00%  DPET=14750  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.415sec  DPE=  498| 1.31%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   279|   216|   303  CritTick=   593|   432|   605|69.48%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.566sec  DPE=15530| 5.24%  DPET=   0  DPR=   0  pDPS= 297  Miss= 0.00%  Hit=  8775|  6810|  9535  Crit= 18665| 13621| 19069|68.91%
+    mirror_image                Count=   3.0|120.533sec  DPE= 4907| 0.00%  DPET=5643  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.0| 21.912sec  DPE= 5097| 0.00%  DPET=4174  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.916sec  DPE= 5111| 4.21%  DPET=   0  DPR=   0  pDPS= 239  Miss= 0.00%  Hit=  2472|  2357|  3300  Crit=  6210|  4715|  6601|70.61%
+    pyroblast                   Count=  86.5|  3.428sec  DPE= 7902|37.58%  DPET=6311  DPR=   8  pDPS=2128  Miss= 0.00%  Hit=  4094|  3570|  4998  Crit=  8846|  7140|  9997|67.90%
+    pyroblast_dot               Count=  87.2|  3.416sec  DPE=  515| 2.64%  DPET=   0  DPR=   0  pDPS= 149  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   227  CritTick=   383|    48|   455|44.77%  UpTime= 89.07%
+    rune_of_power               Count=   5.3| 58.709sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.3|  8.705sec  DPE= 2562| 4.12%  DPET=1974  DPR=   5  pDPS= 233  Miss= 0.00%  Crit=  2562|  1298|  3245|100.00%
+   mirror_image (DPS=129.71189074172568)
+    frostbolt                   Count= 212.7|  3.868sec  DPE=   69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    54  Crit=   101|    78|   109|36.74%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust       : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion      : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.60%
-    embrace_of_paku : start=  5.2 refresh=  1.3 interval= 52.9 trigger= 40.5 duration= 13.2 uptime= 22.91%
-    fireball        : start= 16.5 refresh= 13.3 interval= 11.8 trigger=  6.5 duration=  6.3 uptime= 34.65%
-    firestorm       : start=  6.1 refresh=  0.8 interval= 45.8 trigger= 39.9 duration=  5.3 uptime= 10.90%
-    heating_up      : start= 80.2 refresh=  0.0 interval=  3.7 trigger=  3.7 duration=  1.2 uptime= 32.80%  benefit= 46.89%
-    hot_streak      : start= 70.8 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.80%  benefit= 81.69%
-    pyroclasm       : start=  9.1 refresh=  1.5 interval= 32.5 trigger= 27.4 duration=  7.8 uptime= 23.78%
-    rune_of_power   : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.78%
+    bloodlust       : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion      : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    embrace_of_paku : start=  5.2 refresh=  1.4 interval= 52.5 trigger= 40.0 duration= 13.2 uptime= 22.99%
+    fireball        : start= 19.5 refresh= 16.0 interval= 10.2 trigger=  5.5 duration=  5.9 uptime= 38.29%
+    firestorm       : start=  6.7 refresh=  0.9 interval= 42.2 trigger= 36.8 duration=  5.3 uptime= 11.92%
+    heating_up      : start= 85.0 refresh=  0.0 interval=  3.5 trigger=  3.5 duration=  1.2 uptime= 34.59%  benefit= 47.12%
+    hot_streak      : start= 75.7 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 19.10%  benefit= 86.64%
+    rune_of_power   : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.17%
   Up-Times:
-     22.44% : Mana Cap                      
+     18.98% : Mana Cap                      
   Procs:
-     80.20281 |   3.74094sec : Heating Up generated
-      8.94548 |  29.98346sec : Heating Up removed
-     24.66006 |  11.68148sec : Heating Up converted with Fire Blast
-     70.82693 |   4.22372sec : Hot Streak procs
-    221.37133 |   1.35146sec : Hot Streak spells used
-    154.55060 |   1.93413sec : Hot Streak spell crits
-      3.52086 |  57.34362sec : Hot Streak spell crits wasted
+     84.99710 |   3.54806sec : Heating Up generated
+      8.81613 |  29.12814sec : Heating Up removed
+     25.03074 |  11.51286sec : Heating Up converted with Fire Blast
+     75.74652 |   3.97590sec : Hot Streak procs
+    231.82251 |   1.29627sec : Hot Streak spells used
+    164.22100 |   1.82966sec : Hot Streak spell crits
+      3.47738 |  63.99327sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194433.3 : mana_regen (mana)           (overflow=34.99%)
+    205573.9 : mana_regen (mana)           (overflow=31.56%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: blood_elf blood_elf mage fire 60
-  DPS=5675.1048178442825 DPS-Error=11.022832965258342/0.19% DPS-Range=996.0864144838165/17.55%
-  DPR=8.602492193607967 RPS-Out=653.2462157451307 RPS-In=649.5457437082106 Resource=mana Waiting=0.0 ApM=46.403321371415245
-  Talents: 3031022
+  DPS=5668.943910235113 DPS-Error=10.93330043657146/0.19% DPS-Range=783.0142291223397/13.81%
+  DPR=8.170906001481839 RPS-Out=686.7604474710886 RPS-In=683.4678220886246 Resource=mana Waiting=0 ApM=49.53620890935721
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=195|195(195)  agility=307|307(307)  stamina=434|414(414)  intellect=2364|2252(2252)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -523,6 +541,10 @@ Player: blood_elf blood_elf mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -583,54 +605,56 @@ Player: blood_elf blood_elf mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.179sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.5|  4.078sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|45.67%  UpTime= 67.85%
-    conflagration_flare_up      Count=  29.8|  9.749sec  DPE= 299| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   496|43.95%
-    dragons_breath              Count=   0.2|244.789sec  DPE=4281| 0.05%  DPET=3674  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4281|  4281|  4281|100.00%
-    fire_blast                  Count=  37.9|  7.956sec  DPE=5131|11.45%  DPET=   0  DPR=  10  pDPS= 650  Miss= 0.00%  Crit=  5131|  4158|  5821|100.00%
-    fireball                    Count=  57.5|  4.078sec  DPE=3476|11.24%  DPET=1842  DPR=   3  pDPS= 637  Miss= 0.00%  Hit=  2206|  1962|  2747  Crit=  4513|  3924|  5494|48.24%
-    ignite                      Count= 221.5|  1.348sec  DPE=1452|18.93%  DPET=   0  DPR=   0  pDPS=1074  TickCount=   298  MissTick= 0.00%  Tick=  1078|   190|  3144  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.600sec  DPE=4933| 0.00%  DPET=5676  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.401sec  DPE=4398| 0.00%  DPET=3608  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.9| 22.394sec  DPE=4409| 3.36%  DPET=   0  DPR=   0  pDPS= 190  Miss= 0.00%  Hit=  2559|  2362|  3307  Crit=  5915|  4725|  6615|55.12%
-    pyroblast                   Count=  89.9|  3.333sec  DPE=9379|46.94%  DPET=6196  DPR=   9  pDPS=2665  Miss= 0.00%  Hit=  5690|  3578| 17030  Crit= 10425|  7156| 34060|65.55%
-    pyroblast_dot               Count=  90.6|  3.327sec  DPE= 509| 2.72%  DPET=   0  DPR=   0  pDPS= 154  TickCount=   170  MissTick= 0.00%  Tick=   180|     0|   228  CritTick=   386|     0|   456|44.56%  UpTime= 92.47%
-    rune_of_power               Count=   5.2| 59.411sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.5| 11.175sec  DPE=2553| 3.39%  DPET=1968  DPR=   5  pDPS= 193  Miss= 0.00%  Crit=  2553|  1301|  3252|100.00%
-   mirror_image (DPS=130.88225220301885)
-    frostbolt                   Count= 211.9|  3.871sec  DPE=  70| 0.87%  DPET=  44  DPR=   0  pDPS= 131  Miss= 0.00%  Hit=    51|    39|    55  Crit=   102|    78|   109|36.68%
+    combustion                  Count=   3.0|121.918sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.2|  3.009sec  DPE=  125| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    49|    0|    61  CritTick=    99|    0|   121|40.42%  UpTime= 65.15%
+    conflagration_flare_up      Count=  30.0|  9.673sec  DPE=  299| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   354|   496|43.86%
+    dragons_breath              Count=   0.8|176.712sec  DPE= 4281| 0.21%  DPET=3761  DPR=   2  pDPS=  12  Miss= 0.00%  Crit=  4281|  4281|  4281|100.00%
+    fire_blast                  Count=  38.2|  7.931sec  DPE= 5129|11.52%  DPET=   0  DPR=  10  pDPS= 653  Miss= 0.00%  Crit=  5128|  4158|  5821|100.00%
+    fireball                    Count=  65.2|  3.009sec  DPE= 3326|12.26%  DPET=1775  DPR=   3  pDPS= 694  Miss= 0.00%  Hit=  2201|  1962|  2747  Crit=  4400|  3924|  5494|45.46%
+    ignite                      Count= 237.4|  1.269sec  DPE= 1368|19.08%  DPET=   0  DPR=   0  pDPS=1081  TickCount=   299  MissTick= 0.00%  Tick=  1085|   191|  3310  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.468sec  DPE=19368| 0.00%  DPET=14825  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.434sec  DPE=  500| 1.31%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   280|   217|   303  CritTick=   595|   433|   606|69.88%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.564sec  DPE=15592| 5.25%  DPET=   0  DPR=   0  pDPS= 298  Miss= 0.00%  Hit=  8763|  6825|  9555  Crit= 18732| 13650| 19109|69.31%
+    mirror_image                Count=   3.0|120.588sec  DPE= 4916| 0.00%  DPET=5653  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.763sec  DPE= 5114| 0.00%  DPET=4187  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.783sec  DPE= 5123| 4.22%  DPET=   0  DPR=   0  pDPS= 239  Miss= 0.00%  Hit=  2478|  2362|  3307  Crit=  6221|  4725|  6615|70.63%
+    pyroblast                   Count=  86.2|  3.508sec  DPE= 7927|37.52%  DPET=6330  DPR=   8  pDPS=2128  Miss= 0.00%  Hit=  4104|  3578|  5009  Crit=  8874|  7156| 10018|67.93%
+    pyroblast_dot               Count=  87.0|  3.496sec  DPE=  517| 2.64%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   228  CritTick=   384|    48|   456|44.80%  UpTime= 88.98%
+    rune_of_power               Count=   5.3| 58.620sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.3|  9.030sec  DPE= 2566| 4.11%  DPET=1978  DPR=   5  pDPS= 233  Miss= 0.00%  Crit=  2567|  1301|  3252|100.00%
+   mirror_image (DPS=130.03743886423717)
+    frostbolt                   Count= 212.7|  3.860sec  DPE=   69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    55  Crit=   101|    78|   109|36.82%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.61%
-    fireball      : start= 16.6 refresh= 13.2 interval= 11.8 trigger=  6.5 duration=  6.3 uptime= 34.57%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 45.7 trigger= 39.6 duration=  5.3 uptime= 10.95%
-    heating_up    : start= 80.2 refresh=  0.0 interval=  3.7 trigger=  3.7 duration=  1.2 uptime= 32.65%  benefit= 46.94%
-    hot_streak    : start= 70.9 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.92%  benefit= 81.77%
-    pyroclasm     : start=  9.1 refresh=  1.5 interval= 32.5 trigger= 27.5 duration=  7.9 uptime= 23.80%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.77%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.5 refresh= 16.0 interval= 10.2 trigger=  5.5 duration=  5.9 uptime= 38.11%
+    firestorm     : start=  6.6 refresh=  0.8 interval= 43.0 trigger= 37.5 duration=  5.3 uptime= 11.72%
+    heating_up    : start= 85.0 refresh=  0.0 interval=  3.5 trigger=  3.5 duration=  1.2 uptime= 34.64%  benefit= 47.10%
+    hot_streak    : start= 75.7 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 19.05%  benefit= 86.81%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.15%
   Up-Times:
-     22.37% : Mana Cap                      
+     18.82% : Mana Cap                      
   Procs:
-     80.18381 |   3.74162sec : Heating Up generated
-      8.84097 |  30.11829sec : Heating Up removed
-     24.64064 |  11.67576sec : Heating Up converted with Fire Blast
-     70.92854 |   4.21865sec : Hot Streak procs
-    221.48492 |   1.35074sec : Hot Streak spells used
-    154.68112 |   1.93243sec : Hot Streak spell crits
-      3.56877 |  59.02956sec : Hot Streak spell crits wasted
+     85.00406 |   3.54857sec : Heating Up generated
+      8.86543 |  28.85992sec : Heating Up removed
+     25.08237 |  11.52573sec : Heating Up converted with Fire Blast
+     75.68794 |   3.97981sec : Hot Streak procs
+    231.71230 |   1.29704sec : Hot Streak spells used
+    164.13689 |   1.83118sec : Hot Streak spell crits
+      3.44490 |  64.10958sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194560.4 : mana_regen (mana)           (overflow=34.95%)
+    205542.5 : mana_regen (mana)           (overflow=31.57%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: fire troll mage fire 60
-  DPS=5726.307500958904 DPS-Error=11.063493431916896/0.19% DPS-Range=1023.2150424577517/17.87%
-  DPR=8.603525010853424 RPS-Out=658.9415770130729 RPS-In=654.8735859336746 Resource=mana Waiting=0.0 ApM=47.17579439026525
-  Talents: 3031022
+  DPS=5720.845042540251 DPS-Error=11.320136447548567/0.20% DPS-Range=814.9943192111259/14.25%
+  DPR=8.187547994514684 RPS-Out=691.4435187693524 RPS-In=687.8982756368276 Resource=mana Waiting=0 ApM=50.40705186288526
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -672,6 +696,10 @@ Player: fire troll mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -732,56 +760,58 @@ Player: fire troll mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    berserking                  Count=   1.9|  0.000sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    combustion                  Count=   2.9|122.889sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.3|  4.106sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  31  TickCount=   127  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   101|     0|   121|45.65%  UpTime= 68.10%
-    conflagration_flare_up      Count=  29.7|  9.636sec  DPE= 296| 0.51%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   199|   177|   248  Crit=   425|   354|   495|43.05%
-    dragons_breath              Count=   0.2|246.004sec  DPE=4272| 0.06%  DPET=3930  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
-    fire_blast                  Count=  38.2|  7.900sec  DPE=5121|11.42%  DPET=   0  DPR=  10  pDPS= 654  Miss= 0.00%  Crit=  5121|  4149|  5809|100.00%
-    fireball                    Count=  58.3|  4.106sec  DPE=3448|11.20%  DPET=1832  DPR=   3  pDPS= 640  Miss= 0.00%  Hit=  2201|  1958|  2741  Crit=  4502|  3916|  5482|47.38%
-    ignite                      Count= 223.3|  1.342sec  DPE=1457|19.00%  DPET=   0  DPR=   0  pDPS=1087  TickCount=   298  MissTick= 0.00%  Tick=  1091|   191|  3438  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.716sec  DPE=4949| 0.00%  DPET=5695  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.464sec  DPE=4381| 0.00%  DPET=3655  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  13.0| 22.443sec  DPE=4391| 3.32%  DPET=   0  DPR=   0  pDPS= 190  Miss= 0.00%  Hit=  2555|  2357|  3300  Crit=  5917|  4715|  6601|54.59%
-    pyroblast                   Count=  90.5|  3.312sec  DPE=9411|47.03%  DPET=6300  DPR=   9  pDPS=2695  Miss= 0.00%  Hit=  5667|  3570| 16994  Crit= 10483|  7140| 33988|65.70%
-    pyroblast_dot               Count=  91.2|  3.303sec  DPE= 506| 2.69%  DPET=   0  DPR=   0  pDPS= 154  TickCount=   171  MissTick= 0.00%  Tick=   180|     0|   227  CritTick=   387|     0|   455|43.87%  UpTime= 92.01%
-    rune_of_power               Count=   5.2| 59.156sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.7| 12.236sec  DPE=2540| 3.37%  DPET=1973  DPR=   5  pDPS= 193  Miss= 0.00%  Crit=  2540|  1298|  3245|100.00%
-   mirror_image (DPS=131.40777630935224)
-    frostbolt                   Count= 215.3|  3.790sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 131  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.81%
+    berserking                  Count=   2.0|243.907sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    combustion                  Count=   3.0|121.961sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.5|  3.030sec  DPE=  123| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   121|39.68%  UpTime= 64.97%
+    conflagration_flare_up      Count=  29.9|  9.804sec  DPE=  297| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   495|43.16%
+    dragons_breath              Count=   0.4|137.618sec  DPE= 4272| 0.11%  DPET=4039  DPR=   2  pDPS=   6  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
+    fire_blast                  Count=  38.5|  7.879sec  DPE= 5119|11.48%  DPET=   0  DPR=  10  pDPS= 657  Miss= 0.00%  Crit=  5119|  4149|  5809|100.00%
+    fireball                    Count=  65.5|  3.030sec  DPE= 3299|12.12%  DPET=1761  DPR=   3  pDPS= 691  Miss= 0.00%  Hit=  2198|  1958|  2741  Crit=  4390|  3916|  5482|44.62%
+    ignite                      Count= 240.2|  1.252sec  DPE= 1373|19.20%  DPET=   0  DPR=   0  pDPS=1098  TickCount=   299  MissTick= 0.00%  Tick=  1102|   191|  3384  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.362sec  DPE=19269| 0.00%  DPET=14749  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.442sec  DPE=  497| 1.29%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   280|   216|   303  CritTick=   594|   432|   605|69.25%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.724sec  DPE=15545| 5.18%  DPET=   0  DPR=   0  pDPS= 297  Miss= 0.00%  Hit=  8755|  6810|  9535  Crit= 18685| 13621| 19069|69.02%
+    mirror_image                Count=   3.0|120.547sec  DPE= 4981| 0.00%  DPET=5728  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.909sec  DPE= 5081| 0.00%  DPET=4293  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.896sec  DPE= 5092| 4.16%  DPET=   0  DPR=   0  pDPS= 238  Miss= 0.00%  Hit=  2474|  2357|  3300  Crit=  6199|  4715|  6601|70.27%
+    pyroblast                   Count=  87.5|  3.415sec  DPE= 7932|37.81%  DPET=6449  DPR=   8  pDPS=2165  Miss= 0.00%  Hit=  4102|  3570|  4998  Crit=  8895|  7140|  9997|67.90%
+    pyroblast_dot               Count=  88.3|  3.403sec  DPE=  509| 2.61%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   167  MissTick= 0.00%  Tick=   178|    24|   227  CritTick=   385|    48|   455|44.23%  UpTime= 88.43%
+    rune_of_power               Count=   5.3| 58.743sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  28.2|  8.707sec  DPE= 2545| 4.17%  DPET=1977  DPR=   5  pDPS= 238  Miss= 0.00%  Crit=  2545|  1298|  3245|100.00%
+   mirror_image (DPS=131.7837286803239)
+    frostbolt                   Count= 216.1|  3.789sec  DPE=   69| 0.87%  DPET=  45  DPR=   0  pDPS= 132  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.72%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    berserking    : start=  1.9 refresh=  0.0 interval=247.7 trigger=  0.0 duration= 11.7 uptime=  7.54%  benefit= 30.29%
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.0 trigger=123.0 duration= 11.8 uptime= 11.62%
-    fireball      : start= 16.8 refresh= 13.9 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.13%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 46.1 trigger= 39.9 duration=  5.4 uptime= 10.93%
-    heating_up    : start= 80.5 refresh=  0.0 interval=  3.7 trigger=  3.7 duration=  1.2 uptime= 32.52%  benefit= 46.97%
-    hot_streak    : start= 71.3 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.38%  benefit= 81.79%
-    pyroclasm     : start=  9.2 refresh=  1.5 interval= 32.3 trigger= 27.3 duration=  7.8 uptime= 23.86%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.82%
+    berserking    : start=  2.0 refresh=  0.0 interval=243.9 trigger=243.9 duration= 11.7 uptime=  7.67%  benefit= 13.10%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=122.0 trigger=122.0 duration= 11.8 uptime= 11.71%
+    fireball      : start= 19.6 refresh= 16.7 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.46%
+    firestorm     : start=  6.6 refresh=  0.9 interval= 43.2 trigger= 37.5 duration=  5.3 uptime= 11.74%
+    heating_up    : start= 85.9 refresh=  0.0 interval=  3.5 trigger=  3.5 duration=  1.2 uptime= 34.02%  benefit= 47.13%
+    hot_streak    : start= 76.6 refresh=  0.0 interval=  3.9 trigger=  3.9 duration=  0.9 uptime= 18.59%  benefit= 86.53%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.15%
   Up-Times:
-     22.10% : Mana Cap                      
+     18.83% : Mana Cap                      
   Procs:
-     80.54895 |   3.72527sec : Heating Up generated
-      8.78273 |  30.24406sec : Heating Up removed
-     24.47377 |  11.77052sec : Heating Up converted with Fire Blast
-     71.34159 |   4.19519sec : Hot Streak procs
-    223.35481 |   1.33926sec : Hot Streak spells used
-    155.51673 |   1.92225sec : Hot Streak spell crits
-      3.62619 |  59.96748sec : Hot Streak spell crits wasted
+     85.92053 |   3.50988sec : Heating Up generated
+      8.90719 |  28.75333sec : Heating Up removed
+     24.64559 |  11.66316sec : Heating Up converted with Fire Blast
+     76.56671 |   3.93141sec : Hot Streak procs
+    234.51508 |   1.28147sec : Hot Streak spells used
+    165.71926 |   1.81316sec : Hot Streak spell crits
+      3.23202 |  65.95515sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    196164.7 : mana_regen (mana)           (overflow=34.41%)
+    206877.8 : mana_regen (mana)           (overflow=31.13%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: goblin goblin mage fire 60
-  DPS=5725.770433012237 DPS-Error=11.332769377943105/0.20% DPS-Range=908.984867581552/15.88%
-  DPR=8.606220350034166 RPS-Out=658.6299180187497 RPS-In=654.7743363342036 Resource=mana Waiting=0.0 ApM=46.789226915536545
-  Talents: 3031022
+  DPS=5706.968089070405 DPS-Error=11.31324703619332/0.20% DPS-Range=801.2919265329338/14.04%
+  DPR=8.154458401117358 RPS-Out=692.7570161145409 RPS-In=689.3722395387421 Resource=mana Waiting=0 ApM=49.98696416570162
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=195|195(195)  agility=307|307(307)  stamina=433|413(413)  intellect=2365|2253(2253)  spirit=0|0(0)  health=8660|8260  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -823,6 +853,10 @@ Player: goblin goblin mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -883,54 +917,56 @@ Player: goblin goblin mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|122.915sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.3|  4.085sec  DPE= 156| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   127  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   101|     0|   121|45.09%  UpTime= 67.83%
-    conflagration_flare_up      Count=  29.9|  9.787sec  DPE= 298| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   355|   496|43.23%
-    dragons_breath              Count=   0.1|122.214sec  DPE=4283| 0.04%  DPET=3816  DPR=   2  pDPS=   2  Miss= 0.00%  Crit=  4283|  4283|  4283|100.00%
-    fire_blast                  Count=  38.2|  7.886sec  DPE=5133|11.44%  DPET=   0  DPR=  10  pDPS= 655  Miss= 0.00%  Crit=  5133|  4160|  5823|100.00%
-    fireball                    Count=  58.3|  4.092sec  DPE=3460|11.24%  DPET=1852  DPR=   3  pDPS= 642  Miss= 0.00%  Hit=  2211|  1963|  2748  Crit=  4523|  3926|  5496|47.30%
-    ignite                      Count= 223.4|  1.339sec  DPE=1451|18.94%  DPET=   0  DPR=   0  pDPS=1084  TickCount=   298  MissTick= 0.00%  Tick=  1087|   190|  3186  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.731sec  DPE=4913| 0.00%  DPET=5708  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  12.9| 22.527sec  DPE=4367| 0.00%  DPET=3623  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.8| 22.431sec  DPE=4376| 3.28%  DPET=   0  DPR=   0  pDPS= 187  Miss= 0.00%  Hit=  2549|  2363|  3309  Crit=  5908|  4727|  6618|54.37%
-    pyroblast                   Count=  90.5|  3.306sec  DPE=9409|47.03%  DPET=6263  DPR=   9  pDPS=2696  Miss= 0.00%  Hit=  5730|  3579| 17037  Crit= 10478|  7159| 34075|65.23%
-    pyroblast_dot               Count=  91.2|  3.300sec  DPE= 507| 2.70%  DPET=   0  DPR=   0  pDPS= 155  TickCount=   171  MissTick= 0.00%  Tick=   181|     0|   228  CritTick=   388|     0|   456|43.65%  UpTime= 92.18%
-    rune_of_power               Count=   5.3| 58.967sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.9| 11.075sec  DPE=2553| 3.42%  DPET=1988  DPR=   5  pDPS= 196  Miss= 0.00%  Crit=  2553|  1301|  3254|100.00%
-   mirror_image (DPS=130.38219938721994)
-    frostbolt                   Count= 212.0|  3.861sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    55  Crit=   102|    78|   109|35.74%
+    combustion                  Count=   3.0|121.856sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  66.2|  2.987sec  DPE=  124| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   120  MissTick= 0.00%  Tick=    49|     0|    61  CritTick=    99|     0|   121|39.45%  UpTime= 65.15%
+    conflagration_flare_up      Count=  29.9|  9.628sec  DPE=  298| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   355|   496|43.00%
+    dragons_breath              Count=   0.7|145.410sec  DPE= 4283| 0.17%  DPET=3999  DPR=   2  pDPS=  10  Miss= 0.00%  Crit=  4283|  4283|  4283|100.00%
+    fire_blast                  Count=  38.6|  7.871sec  DPE= 5127|11.55%  DPET=   0  DPR=  10  pDPS= 659  Miss= 0.00%  Crit=  5127|  4160|  5823|100.00%
+    fireball                    Count=  66.2|  2.987sec  DPE= 3322|12.35%  DPET=1791  DPR=   3  pDPS= 703  Miss= 0.00%  Hit=  2210|  1963|  2748  Crit=  4413|  3926|  5496|44.88%
+    ignite                      Count= 239.7|  1.255sec  DPE= 1365|19.09%  DPET=   0  DPR=   0  pDPS=1089  TickCount=   299  MissTick= 0.00%  Tick=  1093|   191|  3215  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.231sec  DPE=19368| 0.00%  DPET=14975  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.8|  6.392sec  DPE=  498| 1.30%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   280|   217|   303  CritTick=   595|   433|   607|69.31%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.364sec  DPE=15634| 5.24%  DPET=   0  DPR=   0  pDPS= 300  Miss= 0.00%  Hit=  8783|  6828|  9559  Crit= 18707| 13655| 19118|69.76%
+    mirror_image                Count=   3.0|120.594sec  DPE= 4884| 0.00%  DPET=5670  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.0| 21.840sec  DPE= 5080| 0.00%  DPET=4203  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.775sec  DPE= 5090| 4.15%  DPET=   0  DPR=   0  pDPS= 237  Miss= 0.00%  Hit=  2476|  2363|  3309  Crit=  6219|  4727|  6618|69.84%
+    pyroblast                   Count=  86.9|  3.457sec  DPE= 7914|37.53%  DPET=6381  DPR=   8  pDPS=2144  Miss= 0.00%  Hit=  4115|  3579|  5011  Crit=  8883|  7159| 10022|67.53%
+    pyroblast_dot               Count=  87.7|  3.446sec  DPE=  512| 2.62%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   167  MissTick= 0.00%  Tick=   179|    30|   228  CritTick=   385|    60|   456|43.73%  UpTime= 88.70%
+    rune_of_power               Count=   5.3| 58.595sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.7|  8.905sec  DPE= 2562| 4.14%  DPET=1994  DPR=   5  pDPS= 236  Miss= 0.00%  Crit=  2562|  1301|  3254|100.00%
+   mirror_image (DPS=129.2349265718153)
+    frostbolt                   Count= 212.9|  3.862sec  DPE=   69| 0.85%  DPET=  44  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    55  Crit=   102|    78|   109|35.67%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.0 trigger=123.0 duration= 11.8 uptime= 11.61%
-    fireball      : start= 16.8 refresh= 13.9 interval= 11.6 trigger=  6.3 duration=  6.3 uptime= 35.23%
-    firestorm     : start=  6.2 refresh=  0.8 interval= 45.6 trigger= 39.4 duration=  5.4 uptime= 11.10%
-    heating_up    : start= 80.5 refresh=  0.0 interval=  3.7 trigger=  3.7 duration=  1.2 uptime= 32.46%  benefit= 46.95%
-    hot_streak    : start= 71.2 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.46%  benefit= 81.66%
-    pyroclasm     : start=  9.2 refresh=  1.5 interval= 32.0 trigger= 27.0 duration=  7.9 uptime= 24.24%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.84%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.73%
+    fireball      : start= 19.7 refresh= 16.7 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.54%
+    firestorm     : start=  6.6 refresh=  0.9 interval= 42.7 trigger= 37.0 duration=  5.4 uptime= 11.84%
+    heating_up    : start= 85.4 refresh=  0.0 interval=  3.5 trigger=  3.5 duration=  1.2 uptime= 34.09%  benefit= 47.15%
+    hot_streak    : start= 76.1 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.97%  benefit= 86.65%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.22%
   Up-Times:
-     22.12% : Mana Cap                      
+     18.74% : Mana Cap                      
   Procs:
-     80.48740 |   3.72699sec : Heating Up generated
-      8.85089 |  29.77520sec : Heating Up removed
-     24.29616 |  11.80409sec : Heating Up converted with Fire Blast
-     71.22677 |   4.20039sec : Hot Streak procs
-    223.44527 |   1.33894sec : Hot Streak spells used
-    155.15159 |   1.92642sec : Hot Streak spell crits
-      3.43742 |  60.10050sec : Hot Streak spell crits wasted
+     85.38399 |   3.53176sec : Heating Up generated
+      8.81439 |  29.00202sec : Heating Up removed
+     24.88573 |  11.53226sec : Heating Up converted with Fire Blast
+     76.13921 |   3.95436sec : Hot Streak procs
+    234.05568 |   1.28402sec : Hot Streak spells used
+    164.89907 |   1.82258sec : Hot Streak spell crits
+      3.37587 |  65.96194sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    196126.8 : mana_regen (mana)           (overflow=34.43%)
+    207323.9 : mana_regen (mana)           (overflow=30.98%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: highmountain_tauren highmountain_tauren mage fire 60
-  DPS=5685.720226314324 DPS-Error=10.967476725225891/0.19% DPS-Range=874.6687275034997/15.38%
-  DPR=8.627935109277606 RPS-Out=652.4594836377795 RPS-In=648.7331411462862 Resource=mana Waiting=0.0 ApM=46.35053240547413
-  Talents: 3031022
+  DPS=5685.42448346023 DPS-Error=11.248676246210374/0.20% DPS-Range=745.6152373166765/13.11%
+  DPR=8.205482825765438 RPS-Out=685.8413850849178 RPS-In=682.4505309318287 Resource=mana Waiting=0 ApM=49.526256418459745
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=199|199(199)  agility=304|304(304)  stamina=436|416(416)  intellect=2361|2249(2249)  spirit=0|0(0)  health=8720|8320  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=13.50%|13.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -972,6 +1008,10 @@ Player: highmountain_tauren highmountain_tauren mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1032,54 +1072,56 @@ Player: highmountain_tauren highmountain_tauren mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.105sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.9|  4.096sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   125  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   103|     0|   122|44.97%  UpTime= 67.92%
-    conflagration_flare_up      Count=  29.8|  9.596sec  DPE= 299| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   201|   179|   250  Crit=   429|   357|   500|43.01%
-    dragons_breath              Count=   0.2|122.120sec  DPE=4314| 0.05%  DPET=3718  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4314|  4314|  4314|100.00%
-    fire_blast                  Count=  37.9|  7.946sec  DPE=5170|11.51%  DPET=   0  DPR=  10  pDPS= 655  Miss= 0.00%  Crit=  5171|  4190|  5865|100.00%
-    fireball                    Count=  57.9|  4.096sec  DPE=3482|11.32%  DPET=1845  DPR=   3  pDPS= 642  Miss= 0.00%  Hit=  2224|  1977|  2768  Crit=  4549|  3954|  5536|47.35%
-    ignite                      Count= 221.2|  1.352sec  DPE=1455|18.92%  DPET=   0  DPR=   0  pDPS=1075  TickCount=   298  MissTick= 0.00%  Tick=  1079|   180|  3085  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.751sec  DPE=4938| 0.00%  DPET=5682  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.512sec  DPE=4403| 0.00%  DPET=3614  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.9| 22.478sec  DPE=4414| 3.36%  DPET=   0  DPR=   0  pDPS= 190  Miss= 0.00%  Hit=  2584|  2380|  3333  Crit=  5958|  4761|  6665|54.24%
-    pyroblast                   Count=  89.3|  3.344sec  DPE=9433|46.80%  DPET=6217  DPR=   9  pDPS=2663  Miss= 0.00%  Hit=  5758|  3605| 17160  Crit= 10499|  7210| 34320|65.12%
-    pyroblast_dot               Count=  90.0|  3.335sec  DPE= 512| 2.71%  DPET=   0  DPR=   0  pDPS= 154  TickCount=   169  MissTick= 0.00%  Tick=   181|     0|   230  CritTick=   390|     0|   459|43.73%  UpTime= 92.15%
-    rune_of_power               Count=   5.2| 59.361sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.5| 11.090sec  DPE=2569| 3.40%  DPET=1980  DPR=   5  pDPS= 194  Miss= 0.00%  Crit=  2569|  1311|  3277|100.00%
-   mirror_image (DPS=131.01264345560753)
-    frostbolt                   Count= 211.9|  3.870sec  DPE=  70| 0.87%  DPET=  44  DPR=   0  pDPS= 131  Miss= 0.00%  Hit=    51|    39|    55  Crit=   103|    79|   110|35.78%
+    combustion                  Count=   3.0|121.978sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.3|  3.019sec  DPE=  125| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    49|    0|    61  CritTick=   100|    0|   122|39.48%  UpTime= 65.12%
+    conflagration_flare_up      Count=  30.0|  9.403sec  DPE=  300| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   202|   179|   250  Crit=   429|   357|   500|43.28%
+    dragons_breath              Count=   0.8|177.907sec  DPE= 4314| 0.19%  DPET=3800  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4314|  4314|  4314|100.00%
+    fire_blast                  Count=  38.2|  7.928sec  DPE= 5167|11.58%  DPET=   0  DPR=  10  pDPS= 658  Miss= 0.00%  Crit=  5167|  4190|  5865|100.00%
+    fireball                    Count=  65.3|  3.019sec  DPE= 3333|12.27%  DPET=1778  DPR=   3  pDPS= 696  Miss= 0.00%  Hit=  2220|  1977|  2768  Crit=  4434|  3954|  5536|44.66%
+    ignite                      Count= 237.4|  1.267sec  DPE= 1372|19.07%  DPET=   0  DPR=   0  pDPS=1084  TickCount=   299  MissTick= 0.00%  Tick=  1088|   193|  3169  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.356sec  DPE=19452| 0.00%  DPET=14889  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.423sec  DPE=  502| 1.31%  DPET=   0  DPR=   0  pDPS=  75  TickCount=    45  MissTick= 0.00%  Tick=   282|   218|   305  CritTick=   600|   436|   611|69.18%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.444sec  DPE=15686| 5.27%  DPET=   0  DPR=   0  pDPS= 300  Miss= 0.00%  Hit=  8855|  6877|  9627  Crit= 18856| 13753| 19255|69.04%
+    mirror_image                Count=   3.0|120.623sec  DPE= 4916| 0.00%  DPET=5653  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.0| 21.741sec  DPE= 5130| 0.00%  DPET=4201  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.745sec  DPE= 5140| 4.22%  DPET=   0  DPR=   0  pDPS= 240  Miss= 0.00%  Hit=  2500|  2380|  3333  Crit=  6280|  4761|  6665|69.84%
+    pyroblast                   Count=  85.8|  3.494sec  DPE= 7965|37.40%  DPET=6362  DPR=   8  pDPS=2128  Miss= 0.00%  Hit=  4133|  3605|  5047  Crit=  8947|  7210| 10094|67.46%
+    pyroblast_dot               Count=  86.5|  3.482sec  DPE=  519| 2.63%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   166  MissTick= 0.00%  Tick=   179|    24|   230  CritTick=   388|    48|   459|43.88%  UpTime= 88.76%
+    rune_of_power               Count=   5.3| 58.689sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.6|  8.214sec  DPE= 2586| 4.18%  DPET=1992  DPR=   5  pDPS= 238  Miss= 0.00%  Crit=  2586|  1311|  3277|100.00%
+   mirror_image (DPS=130.05365175459343)
+    frostbolt                   Count= 212.7|  3.871sec  DPE=   69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    55  Crit=   102|    79|   110|35.78%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.60%
-    fireball      : start= 16.7 refresh= 13.8 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.25%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 45.8 trigger= 39.7 duration=  5.4 uptime= 10.88%
-    heating_up    : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.53%  benefit= 46.86%
-    hot_streak    : start= 70.3 refresh=  0.0 interval=  4.3 trigger=  4.3 duration=  1.0 uptime= 19.56%  benefit= 81.56%
-    pyroclasm     : start=  9.0 refresh=  1.5 interval= 32.6 trigger= 27.5 duration=  7.9 uptime= 23.78%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.76%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.71%
+    fireball      : start= 19.5 refresh= 16.6 interval= 10.2 trigger=  5.4 duration=  6.0 uptime= 38.76%
+    firestorm     : start=  6.6 refresh=  0.8 interval= 42.7 trigger= 37.3 duration=  5.3 uptime= 11.75%
+    heating_up    : start= 84.6 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.42%  benefit= 47.08%
+    hot_streak    : start= 75.2 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.74%  benefit= 86.71%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.15%
   Up-Times:
-     22.49% : Mana Cap                      
+     18.99% : Mana Cap                      
   Procs:
-     79.66997 |   3.76473sec : Heating Up generated
-      8.99422 |  29.93827sec : Heating Up removed
-     24.59686 |  11.69716sec : Heating Up converted with Fire Blast
-     70.27716 |   4.25786sec : Hot Streak procs
-    221.21892 |   1.35223sec : Hot Streak spells used
-    153.42586 |   1.94801sec : Hot Streak spell crits
-      3.47873 |  59.03526sec : Hot Streak spell crits wasted
+     84.56961 |   3.56578sec : Heating Up generated
+      8.91531 |  29.15195sec : Heating Up removed
+     24.94432 |  11.57638sec : Heating Up converted with Fire Blast
+     75.22390 |   4.00325sec : Hot Streak procs
+    231.70070 |   1.29691sec : Hot Streak spells used
+    163.17401 |   1.84141sec : Hot Streak spell crits
+      3.38051 |  64.17972sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194318.2 : mana_regen (mana)           (overflow=35.03%)
+    205253.0 : mana_regen (mana)           (overflow=31.67%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: maghar_orc maghar_orc mage fire 60
-  DPS=5682.350530256901 DPS-Error=11.090510492373028/0.20% DPS-Range=962.4932766124325/16.94%
-  DPR=8.613812550608417 RPS-Out=653.1352044661793 RPS-In=649.3662805303202 Resource=mana Waiting=0.0 ApM=46.97704972538975
-  Talents: 3031022
+  DPS=5677.828790026118 DPS-Error=11.153125549642827/0.20% DPS-Range=813.5572260905674/14.33%
+  DPR=8.183232183015377 RPS-Out=686.6408632781346 RPS-In=683.2423981697971 Resource=mana Waiting=0 ApM=50.17745021241354
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=201|201(201)  agility=303|303(303)  stamina=435|415(415)  intellect=2361|2249(2249)  spirit=0|0(0)  health=8700|8300  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -1121,6 +1163,10 @@ Player: maghar_orc maghar_orc mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1181,59 +1227,61 @@ Player: maghar_orc maghar_orc mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    ancestral_call              Count=   2.9|123.030sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    combustion                  Count=   2.9|122.925sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.0|  4.100sec  DPE= 156| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   125  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   124|44.92%  UpTime= 67.83%
-    conflagration_flare_up      Count=  29.7|  9.841sec  DPE= 297| 0.52%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   199|   177|   255  Crit=   427|   354|   509|42.99%
-    dragons_breath              Count=   0.2|245.132sec  DPE=4302| 0.05%  DPET=3707  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4302|  4276|  4395|100.00%
-    fire_blast                  Count=  37.9|  7.932sec  DPE=5134|11.45%  DPET=   0  DPR=  10  pDPS= 651  Miss= 0.00%  Crit=  5135|  4153|  5975|100.00%
-    fireball                    Count=  58.0|  4.100sec  DPE=3449|11.23%  DPET=1829  DPR=   3  pDPS= 637  Miss= 0.00%  Hit=  2202|  1960|  2820  Crit=  4510|  3919|  5639|47.30%
-    ignite                      Count= 221.4|  1.351sec  DPE=1474|19.20%  DPET=   0  DPR=   0  pDPS=1091  TickCount=   298  MissTick= 0.00%  Tick=  1094|   180|  3500  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.730sec  DPE=4917| 0.00%  DPET=5657  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.411sec  DPE=4396| 0.00%  DPET=3616  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.9| 22.426sec  DPE=4405| 3.36%  DPET=   0  DPR=   0  pDPS= 190  Miss= 0.00%  Hit=  2564|  2359|  3395  Crit=  5950|  4719|  6790|54.37%
-    pyroblast                   Count=  89.4|  3.348sec  DPE=9396|46.74%  DPET=6201  DPR=   9  pDPS=2658  Miss= 0.00%  Hit=  5711|  3573| 17009  Crit= 10464|  7146| 34962|65.23%
-    pyroblast_dot               Count=  90.2|  3.342sec  DPE= 509| 2.70%  DPET=   0  DPR=   0  pDPS= 153  TickCount=   170  MissTick= 0.00%  Tick=   180|     0|   234  CritTick=   387|     0|   468|43.76%  UpTime= 92.14%
-    rune_of_power               Count=   5.2| 59.252sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.4| 11.167sec  DPE=2547| 3.36%  DPET=1966  DPR=   5  pDPS= 191  Miss= 0.00%  Crit=  2547|  1299|  3338|100.00%
-   mirror_image (DPS=130.49705638880476)
-    frostbolt                   Count= 211.9|  3.871sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    56  Crit=   102|    78|   112|36.05%
+    ancestral_call              Count=   3.0|121.927sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    combustion                  Count=   3.0|121.927sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.4|  3.018sec  DPE=  124| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   124|39.66%  UpTime= 65.08%
+    conflagration_flare_up      Count=  29.9|  9.736sec  DPE=  297| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   255  Crit=   426|   354|   509|42.85%
+    dragons_breath              Count=   0.7|169.426sec  DPE= 4311| 0.19%  DPET=3799  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4311|  4276|  4395|100.00%
+    fire_blast                  Count=  38.3|  7.923sec  DPE= 5134|11.53%  DPET=   0  DPR=  10  pDPS= 654  Miss= 0.00%  Crit=  5134|  4153|  5975|100.00%
+    fireball                    Count=  65.4|  3.018sec  DPE= 3310|12.22%  DPET=1765  DPR=   3  pDPS= 692  Miss= 0.00%  Hit=  2203|  1960|  2820  Crit=  4397|  3919|  5639|44.79%
+    ignite                      Count= 237.7|  1.265sec  DPE= 1388|19.36%  DPET=   0  DPR=   0  pDPS=1099  TickCount=   299  MissTick= 0.00%  Tick=  1102|   191|  3525  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.405sec  DPE=19338| 0.00%  DPET=14802  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.406sec  DPE=  500| 1.31%  DPET=   0  DPR=   0  pDPS=  75  TickCount=    45  MissTick= 0.00%  Tick=   280|   216|   303  CritTick=   597|   433|   622|69.30%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.442sec  DPE=15588| 5.24%  DPET=   0  DPR=   0  pDPS= 298  Miss= 0.00%  Hit=  8782|  6816|  9543  Crit= 18796| 13632| 19615|68.66%
+    mirror_image                Count=   3.0|120.561sec  DPE= 4925| 0.00%  DPET=5662  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.0| 21.813sec  DPE= 5118| 0.00%  DPET=4209  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.808sec  DPE= 5129| 4.22%  DPET=   0  DPR=   0  pDPS= 240  Miss= 0.00%  Hit=  2469|  2359|  3395  Crit=  6251|  4719|  6790|70.34%
+    pyroblast                   Count=  86.0|  3.502sec  DPE= 7916|37.32%  DPET=6339  DPR=   8  pDPS=2121  Miss= 0.00%  Hit=  4099|  3573|  5141  Crit=  8912|  7146| 10283|67.29%
+    pyroblast_dot               Count=  86.7|  3.490sec  DPE=  515| 2.62%  DPET=   0  DPR=   0  pDPS= 149  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   234  CritTick=   385|    48|   468|44.00%  UpTime= 88.67%
+    rune_of_power               Count=   5.3| 58.758sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.7|  8.720sec  DPE= 2552| 4.14%  DPET=1971  DPR=   5  pDPS= 235  Miss= 0.00%  Crit=  2552|  1299|  3338|100.00%
+   mirror_image (DPS=130.26285527276926)
+    frostbolt                   Count= 213.6|  3.852sec  DPE=   69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    56  Crit=   102|    78|   112|36.10%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust                    : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion                   : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.60%
-    ferocity_of_the_frostwolf    : start=  0.7 refresh=  0.0 interval=155.6 trigger=123.2 duration= 14.6 uptime=  3.52%
-    fireball                     : start= 16.7 refresh= 13.8 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.28%
-    firestorm                    : start=  6.1 refresh=  0.8 interval= 45.9 trigger= 39.8 duration=  5.3 uptime= 10.83%
-    heating_up                   : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.60%  benefit= 46.90%
-    hot_streak                   : start= 70.4 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.36%  benefit= 81.65%
-    might_of_the_blackrock       : start=  0.7 refresh=  0.0 interval=150.2 trigger=123.6 duration= 14.7 uptime=  3.57%
-    pyroclasm                    : start=  9.1 refresh=  1.5 interval= 32.4 trigger= 27.4 duration=  7.8 uptime= 23.85%
-    rictus_of_the_laughing_skull : start=  0.7 refresh=  0.0 interval=160.0 trigger=123.5 duration= 14.7 uptime=  3.58%
-    rune_of_power                : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.77%
-    zeal_of_the_burning_blade    : start=  0.8 refresh=  0.0 interval=152.8 trigger=123.1 duration= 14.7 uptime=  3.74%
+    bloodlust                    : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion                   : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    ferocity_of_the_frostwolf    : start=  0.7 refresh=  0.0 interval=152.1 trigger=152.1 duration= 14.7 uptime=  3.66%
+    fireball                     : start= 19.6 refresh= 16.5 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.53%
+    firestorm                    : start=  6.5 refresh=  0.9 interval= 43.6 trigger= 37.7 duration=  5.4 uptime= 11.64%
+    heating_up                   : start= 84.7 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.36%  benefit= 47.09%
+    hot_streak                   : start= 75.4 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.68%  benefit= 86.72%
+    might_of_the_blackrock       : start=  0.7 refresh=  0.0 interval=155.7 trigger=155.7 duration= 14.7 uptime=  3.68%
+    rictus_of_the_laughing_skull : start=  0.7 refresh=  0.0 interval=155.9 trigger=155.9 duration= 14.7 uptime=  3.61%
+    rune_of_power                : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.18%
+    zeal_of_the_burning_blade    : start=  0.7 refresh=  0.0 interval=155.7 trigger=155.7 duration= 14.8 uptime=  3.62%
   Up-Times:
-     22.47% : Mana Cap                      
+     18.94% : Mana Cap                      
   Procs:
-     79.72284 |   3.76263sec : Heating Up generated
-      8.89591 |  29.96003sec : Heating Up removed
-     24.58158 |  11.68937sec : Heating Up converted with Fire Blast
-     70.42131 |   4.24861sec : Hot Streak procs
-    221.40479 |   1.35115sec : Hot Streak spells used
-    153.60471 |   1.94575sec : Hot Streak spell crits
-      3.46055 |  59.56943sec : Hot Streak spell crits wasted
+     84.71694 |   3.55997sec : Heating Up generated
+      8.89095 |  28.86032sec : Heating Up removed
+     25.03074 |  11.51279sec : Heating Up converted with Fire Blast
+     75.38689 |   3.99530sec : Hot Streak procs
+    232.02726 |   1.29516sec : Hot Streak spells used
+    163.41241 |   1.83908sec : Hot Streak spell crits
+      3.30858 |  64.73853sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194514.6 : mana_regen (mana)           (overflow=34.97%)
+    205472.3 : mana_regen (mana)           (overflow=31.59%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: nightborne nightborne mage fire 60
-  DPS=5703.3700490771125 DPS-Error=10.805192862747921/0.19% DPS-Range=883.7566250890645/15.50%
-  DPR=8.659686829764961 RPS-Out=652.2043645495061 RPS-In=648.4756846155555 Resource=mana Waiting=0.0 ApM=46.34838113100004
-  Talents: 3031022
+  DPS=5699.786026691414 DPS-Error=10.977729726155184/0.19% DPS-Range=676.3559735073004/11.87%
+  DPR=8.224935060173697 RPS-Out=685.9551829459548 RPS-In=682.6634467298287 Resource=mana Waiting=0 ApM=49.515262387817195
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=196|196(196)  agility=307|307(307)  stamina=433|413(413)  intellect=2364|2252(2252)  spirit=0|0(0)  health=8660|8260  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -1275,6 +1323,10 @@ Player: nightborne nightborne mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1335,54 +1387,56 @@ Player: nightborne nightborne mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.028sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.8|  4.085sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    49|     0|    61  CritTick=   103|     0|   122|44.87%  UpTime= 67.91%
-    conflagration_flare_up      Count=  29.9|  9.451sec  DPE= 300| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   202|   179|   251  Crit=   429|   358|   501|42.96%
-    dragons_breath              Count=   0.2|  0.000sec  DPE=4324| 0.05%  DPET=3713  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4324|  4324|  4324|100.00%
-    fire_blast                  Count=  37.9|  7.934sec  DPE=5183|11.51%  DPET=   0  DPR=  10  pDPS= 657  Miss= 0.00%  Crit=  5184|  4199|  5879|100.00%
-    fireball                    Count=  57.8|  4.085sec  DPE=3487|11.29%  DPET=1847  DPR=   3  pDPS= 642  Miss= 0.00%  Hit=  2226|  1982|  2774  Crit=  4562|  3964|  5549|47.28%
-    ignite                      Count= 221.2|  1.352sec  DPE=1459|18.92%  DPET=   0  DPR=   0  pDPS=1079  TickCount=   298  MissTick= 0.00%  Tick=  1082|   192|  3112  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.787sec  DPE=4894| 0.00%  DPET=5630  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.336sec  DPE=4418| 0.00%  DPET=3625  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  13.0| 22.293sec  DPE=4429| 3.36%  DPET=   0  DPR=   0  pDPS= 191  Miss= 0.00%  Hit=  2592|  2386|  3340  Crit=  5972|  4772|  6681|54.35%
-    pyroblast                   Count=  89.3|  3.338sec  DPE=9474|46.84%  DPET=6244  DPR=   9  pDPS=2673  Miss= 0.00%  Hit=  5772|  3614| 17201  Crit= 10545|  7227| 34401|65.14%
-    pyroblast_dot               Count=  90.0|  3.330sec  DPE= 514| 2.71%  DPET=   0  DPR=   0  pDPS= 155  TickCount=   169  MissTick= 0.00%  Tick=   182|     0|   230  CritTick=   391|     0|   460|43.74%  UpTime= 92.19%
-    rune_of_power               Count=   5.2| 59.379sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.6| 10.753sec  DPE=2574| 3.40%  DPET=1985  DPR=   5  pDPS= 194  Miss= 0.00%  Crit=  2574|  1314|  3285|100.00%
-   mirror_image (DPS=129.8577242012952)
-    frostbolt                   Count= 211.9|  3.869sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    55  Crit=   102|    78|   109|35.65%
+    combustion                  Count=   3.0|121.952sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.4|  3.022sec  DPE=  125| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    49|    0|    61  CritTick=   100|    0|   122|39.44%  UpTime= 65.14%
+    conflagration_flare_up      Count=  29.9|  9.763sec  DPE=  301| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   202|   179|   251  Crit=   430|   358|   501|43.61%
+    dragons_breath              Count=   0.8|180.382sec  DPE= 4324| 0.20%  DPET=3831  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4324|  4324|  4324|100.00%
+    fire_blast                  Count=  38.2|  7.924sec  DPE= 5182|11.57%  DPET=   0  DPR=  10  pDPS= 660  Miss= 0.00%  Crit=  5182|  4199|  5879|100.00%
+    fireball                    Count=  65.4|  3.022sec  DPE= 3347|12.31%  DPET=1786  DPR=   3  pDPS= 700  Miss= 0.00%  Hit=  2225|  1982|  2774  Crit=  4446|  3964|  5549|44.88%
+    ignite                      Count= 237.3|  1.268sec  DPE= 1375|19.07%  DPET=   0  DPR=   0  pDPS=1086  TickCount=   299  MissTick= 0.00%  Tick=  1090|   193|  3246  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.411sec  DPE=19520| 0.00%  DPET=14942  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.406sec  DPE=  504| 1.32%  DPET=   0  DPR=   0  pDPS=  75  TickCount=    45  MissTick= 0.00%  Tick=   283|   219|   306  CritTick=   601|   437|   612|69.42%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.493sec  DPE=15722| 5.27%  DPET=   0  DPR=   0  pDPS= 301  Miss= 0.00%  Hit=  8873|  6893|  9650  Crit= 18899| 13786| 19301|69.04%
+    mirror_image                Count=   3.0|120.579sec  DPE= 4882| 0.00%  DPET=5616  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.785sec  DPE= 5152| 0.00%  DPET=4219  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.804sec  DPE= 5162| 4.23%  DPET=   0  DPR=   0  pDPS= 241  Miss= 0.00%  Hit=  2501|  2386|  3340  Crit=  6288|  4772|  6681|70.27%
+    pyroblast                   Count=  85.8|  3.501sec  DPE= 7981|37.38%  DPET=6374  DPR=   8  pDPS=2132  Miss= 0.00%  Hit=  4144|  3614|  5059  Crit=  8967|  7227| 10118|67.37%
+    pyroblast_dot               Count=  86.5|  3.489sec  DPE=  521| 2.63%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   166  MissTick= 0.00%  Tick=   180|    24|   230  CritTick=   389|    48|   460|43.97%  UpTime= 88.74%
+    rune_of_power               Count=   5.3| 58.609sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.5|  8.738sec  DPE= 2594| 4.17%  DPET=1999  DPR=   5  pDPS= 237  Miss= 0.00%  Crit=  2594|  1314|  3285|100.00%
+   mirror_image (DPS=129.10433461988526)
+    frostbolt                   Count= 212.7|  3.863sec  DPE=   69| 0.85%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    55  Crit=   101|    78|   109|35.80%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.61%
-    fireball      : start= 16.6 refresh= 13.9 interval= 11.8 trigger=  6.3 duration=  6.4 uptime= 35.29%
-    firestorm     : start=  6.0 refresh=  0.8 interval= 46.6 trigger= 40.3 duration=  5.4 uptime= 10.78%
-    heating_up    : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.48%  benefit= 46.87%
-    hot_streak    : start= 70.3 refresh=  0.0 interval=  4.3 trigger=  4.3 duration=  1.0 uptime= 19.50%  benefit= 81.61%
-    pyroclasm     : start=  9.1 refresh=  1.5 interval= 32.6 trigger= 27.5 duration=  7.9 uptime= 23.81%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.76%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.5 refresh= 16.5 interval= 10.2 trigger=  5.4 duration=  5.9 uptime= 38.65%
+    firestorm     : start=  6.6 refresh=  0.8 interval= 42.8 trigger= 37.2 duration=  5.3 uptime= 11.74%
+    heating_up    : start= 84.6 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.45%  benefit= 47.09%
+    hot_streak    : start= 75.3 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.76%  benefit= 86.72%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.16%
   Up-Times:
-     22.49% : Mana Cap                      
+     18.91% : Mana Cap                      
   Procs:
-     79.70425 |   3.76366sec : Heating Up generated
-      8.96696 |  30.08636sec : Heating Up removed
-     24.60843 |  11.69948sec : Heating Up converted with Fire Blast
-     70.31681 |   4.25468sec : Hot Streak procs
-    221.21272 |   1.35228sec : Hot Streak spells used
-    153.44114 |   1.94773sec : Hot Streak spell crits
-      3.42007 |  58.75742sec : Hot Streak spell crits wasted
+     84.56845 |   3.56700sec : Heating Up generated
+      8.87877 |  29.14401sec : Heating Up removed
+     24.91879 |  11.58284sec : Heating Up converted with Fire Blast
+     75.25638 |   4.00294sec : Hot Streak procs
+    231.66009 |   1.29743sec : Hot Streak spells used
+    163.22274 |   1.84153sec : Hot Streak spell crits
+      3.39791 |  64.52552sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194244.1 : mana_regen (mana)           (overflow=35.06%)
+    205301.9 : mana_regen (mana)           (overflow=31.65%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: orc orc mage fire 60
-  DPS=5718.861236136428 DPS-Error=10.981040502627389/0.19% DPS-Range=993.5545727028366/17.37%
-  DPR=8.675247165551808 RPS-Out=652.6139341128422 RPS-In=648.8272869849696 Resource=mana Waiting=0.0 ApM=46.97630505345641
-  Talents: 3031022
+  DPS=5734.501244743563 DPS-Error=11.371725703780886/0.20% DPS-Range=799.4801859574823/13.94%
+  DPR=8.276089661130385 RPS-Out=685.5057778337243 RPS-In=682.2452665934004 Resource=mana Waiting=0 ApM=50.091118140209964
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=201|201(201)  agility=303|303(303)  stamina=435|415(415)  intellect=2361|2249(2249)  spirit=0|0(0)  health=8700|8300  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -1424,6 +1478,10 @@ Player: orc orc mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1484,56 +1542,58 @@ Player: orc orc mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    blood_fury                  Count=   2.9|123.804sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    combustion                  Count=   2.9|123.257sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.0|  4.060sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   104|     0|   128|45.01%  UpTime= 67.89%
-    conflagration_flare_up      Count=  29.8|  9.581sec  DPE= 301| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   261  Crit=   433|   354|   522|43.18%
-    dragons_breath              Count=   0.2|244.920sec  DPE=4508| 0.05%  DPET=3894  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4508|  4508|  4508|100.00%
-    fire_blast                  Count=  37.9|  7.951sec  DPE=5208|11.53%  DPET=   0  DPR=  10  pDPS= 659  Miss= 0.00%  Crit=  5208|  4153|  6129|100.00%
-    fireball                    Count=  58.0|  4.066sec  DPE=3457|11.18%  DPET=1832  DPR=   3  pDPS= 638  Miss= 0.00%  Hit=  2205|  1960|  2892  Crit=  4522|  3919|  5784|47.27%
-    ignite                      Count= 221.4|  1.353sec  DPE=1468|18.99%  DPET=   0  DPR=   0  pDPS=1086  TickCount=   298  MissTick= 0.00%  Tick=  1090|   192|  3296  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.740sec  DPE=5046| 0.00%  DPET=5806  DPR=   8  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.363sec  DPE=4485| 0.00%  DPET=3679  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  13.0| 22.362sec  DPE=4496| 3.40%  DPET=   0  DPR=   0  pDPS= 194  Miss= 0.00%  Hit=  2572|  2359|  3482  Crit=  6112|  4719|  6965|54.34%
-    pyroblast                   Count=  89.2|  3.340sec  DPE=9498|46.79%  DPET=6274  DPR=   9  pDPS=2678  Miss= 0.00%  Hit=  5696|  3573| 17009  Crit= 10635|  7146| 35861|64.98%
-    pyroblast_dot               Count=  89.9|  3.335sec  DPE= 515| 2.71%  DPET=   0  DPR=   0  pDPS= 155  TickCount=   169  MissTick= 0.00%  Tick=   180|     0|   240  CritTick=   393|     0|   480|43.81%  UpTime= 92.16%
-    rune_of_power               Count=   5.2| 59.484sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.7| 11.671sec  DPE=2559| 3.40%  DPET=1973  DPR=   5  pDPS= 195  Miss= 0.00%  Crit=  2559|  1370|  3424|100.00%
-   mirror_image (DPS=133.8694330297952)
-    frostbolt                   Count= 211.9|  3.870sec  DPE=  71| 0.88%  DPET=  45  DPR=   0  pDPS= 134  Miss= 0.00%  Hit=    53|    39|    58  Crit=   105|    79|   116|35.71%
+    blood_fury                  Count=   3.0|121.897sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    combustion                  Count=   3.0|121.897sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.5|  2.991sec  DPE=  124| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=   100|    0|   128|39.54%  UpTime= 65.13%
+    conflagration_flare_up      Count=  30.0|  9.513sec  DPE=  302| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   201|   177|   261  Crit=   433|   354|   522|43.46%
+    dragons_breath              Count=   0.8|154.063sec  DPE= 4508| 0.21%  DPET=3981  DPR=   2  pDPS=  12  Miss= 0.00%  Crit=  4508|  4508|  4508|100.00%
+    fire_blast                  Count=  38.2|  7.933sec  DPE= 5204|11.56%  DPET=   0  DPR=  10  pDPS= 663  Miss= 0.00%  Crit=  5204|  4153|  6129|100.00%
+    fireball                    Count=  65.5|  2.991sec  DPE= 3306|12.11%  DPET=1763  DPR=   3  pDPS= 692  Miss= 0.00%  Hit=  2202|  1960|  2892  Crit=  4397|  3919|  5784|44.65%
+    ignite                      Count= 237.2|  1.269sec  DPE= 1388|19.13%  DPET=   0  DPR=   0  pDPS=1097  TickCount=   299  MissTick= 0.00%  Tick=  1100|   191|  3378  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.342sec  DPE=19937| 0.00%  DPET=15261  DPR=  40  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.426sec  DPE=  514| 1.34%  DPET=   0  DPR=   0  pDPS=  77  TickCount=    45  MissTick= 0.00%  Tick=   280|   216|   303  CritTick=   619|   433|   638|69.18%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.431sec  DPE=16056| 5.35%  DPET=   0  DPR=   0  pDPS= 307  Miss= 0.00%  Hit=  8777|  6816|  9543  Crit= 19469| 13632| 20120|68.76%
+    mirror_image                Count=   3.0|120.589sec  DPE= 5035| 0.00%  DPET=5791  DPR=   8  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.662sec  DPE= 5276| 0.00%  DPET=4320  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.677sec  DPE= 5289| 4.31%  DPET=   0  DPR=   0  pDPS= 247  Miss= 0.00%  Hit=  2483|  2359|  3482  Crit=  6499|  4719|  6965|69.88%
+    pyroblast                   Count=  85.4|  3.551sec  DPE= 8057|37.38%  DPET=6437  DPR=   8  pDPS=2146  Miss= 0.00%  Hit=  4105|  3573|  5274  Crit=  9093|  7146| 10547|67.35%
+    pyroblast_dot               Count=  86.2|  3.538sec  DPE=  522| 2.62%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   240  CritTick=   392|    48|   480|43.82%  UpTime= 88.61%
+    rune_of_power               Count=   5.3| 58.651sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.6|  8.576sec  DPE= 2569| 4.12%  DPET=1980  DPR=   5  pDPS= 236  Miss= 0.00%  Crit=  2569|  1370|  3424|100.00%
+   mirror_image (DPS=133.1735264147418)
+    frostbolt                   Count= 212.7|  3.861sec  DPE=   71| 0.88%  DPET=  45  DPR=   0  pDPS= 133  Miss= 0.00%  Hit=    52|    39|    58  Crit=   105|    79|   116|35.84%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    blood_fury    : start=  2.9 refresh=  0.0 interval=124.1 trigger=123.4 duration= 14.7 uptime= 14.40%
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.59%
-    fireball      : start= 16.7 refresh= 13.9 interval= 11.8 trigger=  6.3 duration=  6.3 uptime= 35.25%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 46.0 trigger= 40.0 duration=  5.3 uptime= 10.83%
-    heating_up    : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.48%  benefit= 46.88%
-    hot_streak    : start= 70.3 refresh=  0.0 interval=  4.3 trigger=  4.3 duration=  1.0 uptime= 19.43%  benefit= 81.67%
-    pyroclasm     : start=  9.0 refresh=  1.5 interval= 32.7 trigger= 27.6 duration=  7.9 uptime= 23.59%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.76%
+    blood_fury    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 14.7 uptime= 14.57%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.6 refresh= 16.7 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.73%
+    firestorm     : start=  6.5 refresh=  0.8 interval= 43.8 trigger= 38.1 duration=  5.3 uptime= 11.59%
+    heating_up    : start= 84.4 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.38%  benefit= 47.06%
+    hot_streak    : start= 75.0 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.72%  benefit= 86.85%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.16%
   Up-Times:
-     22.46% : Mana Cap                      
+     18.91% : Mana Cap                      
   Procs:
-     79.69062 |   3.76532sec : Heating Up generated
-      8.93309 |  30.05486sec : Heating Up removed
-     24.60099 |  11.68798sec : Heating Up converted with Fire Blast
-     70.34572 |   4.25348sec : Hot Streak procs
-    221.43205 |   1.35118sec : Hot Streak spells used
-    153.47666 |   1.94774sec : Hot Streak spell crits
-      3.44031 |  57.83069sec : Hot Streak spell crits wasted
+     84.42749 |   3.57292sec : Heating Up generated
+      8.91937 |  28.80388sec : Heating Up removed
+     24.98086 |  11.55454sec : Heating Up converted with Fire Blast
+     75.04698 |   4.01327sec : Hot Streak procs
+    231.56439 |   1.29775sec : Hot Streak spells used
+    162.93329 |   1.84446sec : Hot Streak spell crits
+      3.45882 |  62.14964sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194344.8 : mana_regen (mana)           (overflow=35.02%)
+    205176.1 : mana_regen (mana)           (overflow=31.69%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: pandaren pandaren mage fire 60
-  DPS=5638.090033725281 DPS-Error=11.021733336273334/0.20% DPS-Range=939.1431285600174/16.66%
-  DPR=8.553427904960634 RPS-Out=652.7194293033986 RPS-In=649.0619993042254 Resource=mana Waiting=0.0 ApM=46.39330967097814
-  Talents: 3031022
+  DPS=5646.0949222234785 DPS-Error=11.208090552636673/0.20% DPS-Range=830.6513233047081/14.71%
+  DPR=8.143054878968721 RPS-Out=686.1837430566814 RPS-In=682.8358350590811 Resource=mana Waiting=0 ApM=49.5269507782898
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=198|198(198)  agility=304|304(304)  stamina=436|416(416)  intellect=2362|2250(2250)  spirit=0|0(0)  health=8720|8320  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -1575,6 +1635,10 @@ Player: pandaren pandaren mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1635,54 +1699,56 @@ Player: pandaren pandaren mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.146sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.9|  4.155sec  DPE= 155| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|44.79%  UpTime= 67.89%
-    conflagration_flare_up      Count=  29.8|  9.623sec  DPE= 296| 0.52%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   496|42.58%
-    dragons_breath              Count=   0.2|183.415sec  DPE=4278| 0.05%  DPET=3633  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4278|  4278|  4278|100.00%
-    fire_blast                  Count=  37.9|  7.952sec  DPE=5129|11.51%  DPET=   0  DPR=  10  pDPS= 649  Miss= 0.00%  Crit=  5130|  4154|  5816|100.00%
-    fireball                    Count=  57.9|  4.155sec  DPE=3453|11.32%  DPET=1830  DPR=   3  pDPS= 637  Miss= 0.00%  Hit=  2204|  1960|  2745  Crit=  4512|  3921|  5489|47.42%
-    ignite                      Count= 221.4|  1.354sec  DPE=1442|18.93%  DPET=   0  DPR=   0  pDPS=1067  TickCount=   298  MissTick= 0.00%  Tick=  1071|   190|  3050  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.755sec  DPE=4891| 0.00%  DPET=5627  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.371sec  DPE=4363| 0.00%  DPET=3580  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.9| 22.341sec  DPE=4374| 3.36%  DPET=   0  DPR=   0  pDPS= 189  Miss= 0.00%  Hit=  2563|  2360|  3305  Crit=  5915|  4721|  6609|54.00%
-    pyroblast                   Count=  89.3|  3.341sec  DPE=9348|46.76%  DPET=6178  DPR=   9  pDPS=2638  Miss= 0.00%  Hit=  5681|  3575| 17016  Crit= 10405|  7149| 34032|65.25%
-    pyroblast_dot               Count=  90.0|  3.335sec  DPE= 508| 2.71%  DPET=   0  DPR=   0  pDPS= 153  TickCount=   169  MissTick= 0.00%  Tick=   180|     0|   228  CritTick=   386|     0|   455|43.74%  UpTime= 92.14%
-    rune_of_power               Count=   5.2| 59.392sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.7| 11.360sec  DPE=2546| 3.43%  DPET=1963  DPR=   5  pDPS= 194  Miss= 0.00%  Crit=  2546|  1300|  3250|100.00%
-   mirror_image (DPS=129.72760579038524)
-    frostbolt                   Count= 211.9|  3.868sec  DPE=  69| 0.87%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    55  Crit=   102|    78|   109|35.68%
+    combustion                  Count=   3.0|121.908sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.3|  3.019sec  DPE=  124| 0.48%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   121|39.59%  UpTime= 65.11%
+    conflagration_flare_up      Count=  30.2|  9.726sec  DPE=  297| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   354|   496|43.14%
+    dragons_breath              Count=   0.8|161.583sec  DPE= 4278| 0.19%  DPET=3797  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4278|  4278|  4278|100.00%
+    fire_blast                  Count=  38.2|  7.940sec  DPE= 5123|11.56%  DPET=   0  DPR=  10  pDPS= 652  Miss= 0.00%  Crit=  5123|  4154|  5816|100.00%
+    fireball                    Count=  65.3|  3.019sec  DPE= 3308|12.26%  DPET=1764  DPR=   3  pDPS= 690  Miss= 0.00%  Hit=  2201|  1960|  2745  Crit=  4394|  3921|  5489|44.85%
+    ignite                      Count= 237.4|  1.268sec  DPE= 1362|19.07%  DPET=   0  DPR=   0  pDPS=1076  TickCount=   299  MissTick= 0.00%  Tick=  1080|   191|  3178  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.491sec  DPE=19304| 0.00%  DPET=14775  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.408sec  DPE=  498| 1.31%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   280|   216|   303  CritTick=   595|   433|   606|69.12%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.594sec  DPE=15565| 5.26%  DPET=   0  DPR=   0  pDPS= 297  Miss= 0.00%  Hit=  8776|  6819|  9547  Crit= 18718| 13638| 19093|69.09%
+    mirror_image                Count=   3.0|120.623sec  DPE= 4875| 0.00%  DPET=5608  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.881sec  DPE= 5093| 0.00%  DPET=4171  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.887sec  DPE= 5104| 4.22%  DPET=   0  DPR=   0  pDPS= 239  Miss= 0.00%  Hit=  2480|  2360|  3305  Crit=  6217|  4721|  6609|70.22%
+    pyroblast                   Count=  86.0|  3.505sec  DPE= 7902|37.47%  DPET=6315  DPR=   8  pDPS=2118  Miss= 0.00%  Hit=  4098|  3575|  5005  Crit=  8878|  7149| 10009|67.48%
+    pyroblast_dot               Count=  86.7|  3.494sec  DPE=  513| 2.63%  DPET=   0  DPR=   0  pDPS= 148  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   228  CritTick=   384|    48|   455|43.87%  UpTime= 88.74%
+    rune_of_power               Count=   5.3| 58.651sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.5|  8.196sec  DPE= 2565| 4.16%  DPET=1976  DPR=   5  pDPS= 235  Miss= 0.00%  Crit=  2564|  1300|  3250|100.00%
+   mirror_image (DPS=128.8641599730312)
+    frostbolt                   Count= 212.7|  3.876sec  DPE=   69| 0.86%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    55  Crit=   101|    78|   109|35.70%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.2 trigger=123.2 duration= 11.8 uptime= 11.60%
-    fireball      : start= 16.7 refresh= 13.7 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.21%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 45.9 trigger= 39.9 duration=  5.3 uptime= 10.87%
-    heating_up    : start= 79.9 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.55%  benefit= 46.85%
-    hot_streak    : start= 70.4 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.50%  benefit= 81.67%
-    pyroclasm     : start=  9.0 refresh=  1.5 interval= 32.9 trigger= 27.8 duration=  7.9 uptime= 23.52%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.73%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.6 refresh= 16.4 interval= 10.1 trigger=  5.4 duration=  5.9 uptime= 38.60%
+    firestorm     : start=  6.7 refresh=  0.8 interval= 42.8 trigger= 37.4 duration=  5.3 uptime= 11.83%
+    heating_up    : start= 84.7 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.55%  benefit= 47.07%
+    hot_streak    : start= 75.3 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.75%  benefit= 86.57%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.16%
   Up-Times:
-     22.46% : Mana Cap                      
+     18.90% : Mana Cap                      
   Procs:
-     79.89302 |   3.75396sec : Heating Up generated
-      9.05452 |  29.73115sec : Heating Up removed
-     24.52582 |  11.71714sec : Heating Up converted with Fire Blast
-     70.42834 |   4.24710sec : Hot Streak procs
-    221.42668 |   1.35082sec : Hot Streak spells used
-    153.74680 |   1.94361sec : Hot Streak spell crits
-      3.42544 |  59.90929sec : Hot Streak spell crits wasted
+     84.66937 |   3.56210sec : Heating Up generated
+      8.96288 |  28.60608sec : Heating Up removed
+     24.97564 |  11.54269sec : Heating Up converted with Fire Blast
+     75.28886 |   4.00101sec : Hot Streak procs
+    231.73144 |   1.29688sec : Hot Streak spells used
+    163.35499 |   1.83971sec : Hot Streak spell crits
+      3.39675 |  63.83051sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194427.2 : mana_regen (mana)           (overflow=34.99%)
+    205353.7 : mana_regen (mana)           (overflow=31.64%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: troll troll mage fire 60
-  DPS=5722.173046983871 DPS-Error=11.359276837489341/0.20% DPS-Range=998.3976849714045/17.45%
-  DPR=8.59471200785116 RPS-Out=659.1560149494325 RPS-In=655.1700522415356 Resource=mana Waiting=0.0 ApM=47.19250813810241
-  Talents: 3031022
+  DPS=5732.706953632933 DPS-Error=11.339133374345163/0.20% DPS-Range=736.5070837354133/12.85%
+  DPR=8.198771279141269 RPS-Out=691.9372857596142 RPS-In=688.3048773230897 Resource=mana Waiting=0 ApM=50.43714078885433
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -1724,6 +1790,10 @@ Player: troll troll mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1784,56 +1854,58 @@ Player: troll troll mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    berserking                  Count=   1.9|  0.000sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    combustion                  Count=   2.9|123.005sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  58.3|  4.067sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  31  TickCount=   126  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   101|     0|   121|45.54%  UpTime= 68.04%
-    conflagration_flare_up      Count=  29.6|  9.757sec  DPE= 297| 0.51%  DPET=   0  DPR=   0  pDPS=  29  Miss= 0.00%  Hit=   199|   177|   248  Crit=   425|   354|   495|43.24%
-    dragons_breath              Count=   0.2|245.647sec  DPE=4272| 0.06%  DPET=3942  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
-    fire_blast                  Count=  38.2|  7.875sec  DPE=5121|11.42%  DPET=   0  DPR=  10  pDPS= 653  Miss= 0.00%  Crit=  5121|  4149|  5809|100.00%
-    fireball                    Count=  58.3|  4.067sec  DPE=3452|11.22%  DPET=1835  DPR=   3  pDPS= 641  Miss= 0.00%  Hit=  2204|  1958|  2741  Crit=  4506|  3916|  5482|47.42%
-    ignite                      Count= 223.4|  1.336sec  DPE=1456|19.00%  DPET=   0  DPR=   0  pDPS=1087  TickCount=   298  MissTick= 0.00%  Tick=  1091|   191|  3445  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.745sec  DPE=4941| 0.00%  DPET=5683  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.560sec  DPE=4389| 0.00%  DPET=3663  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.9| 22.547sec  DPE=4400| 3.33%  DPET=   0  DPR=   0  pDPS= 190  Miss= 0.00%  Hit=  2554|  2357|  3300  Crit=  5914|  4715|  6601|54.91%
-    pyroblast                   Count=  90.6|  3.304sec  DPE=9390|46.99%  DPET=6294  DPR=   9  pDPS=2691  Miss= 0.00%  Hit=  5669|  3570| 16994  Crit= 10449|  7140| 33988|65.69%
-    pyroblast_dot               Count=  91.3|  3.297sec  DPE= 505| 2.69%  DPET=   0  DPR=   0  pDPS= 154  TickCount=   170  MissTick= 0.00%  Tick=   180|     0|   227  CritTick=   387|     1|   455|43.85%  UpTime= 91.99%
-    rune_of_power               Count=   5.2| 59.232sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.8| 11.801sec  DPE=2542| 3.38%  DPET=1974  DPR=   5  pDPS= 194  Miss= 0.00%  Crit=  2542|  1298|  3245|100.00%
-   mirror_image (DPS=131.22494567123871)
-    frostbolt                   Count= 215.2|  3.795sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 131  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.64%
+    berserking                  Count=   2.0|243.877sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    combustion                  Count=   3.0|121.938sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.2|  3.024sec  DPE=  124| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=    99|     0|   121|39.61%  UpTime= 64.90%
+    conflagration_flare_up      Count=  29.9|  9.811sec  DPE=  297| 0.51%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   199|   177|   248  Crit=   425|   354|   495|43.03%
+    dragons_breath              Count=   0.4|135.730sec  DPE= 4272| 0.11%  DPET=3983  DPR=   2  pDPS=   6  Miss= 0.00%  Crit=  4272|  4272|  4272|100.00%
+    fire_blast                  Count=  38.5|  7.871sec  DPE= 5118|11.46%  DPET=   0  DPR=  10  pDPS= 657  Miss= 0.00%  Crit=  5118|  4149|  5809|100.00%
+    fireball                    Count=  65.2|  3.024sec  DPE= 3304|12.05%  DPET=1764  DPR=   3  pDPS= 689  Miss= 0.00%  Hit=  2197|  1958|  2741  Crit=  4385|  3916|  5482|44.93%
+    ignite                      Count= 240.3|  1.252sec  DPE= 1376|19.21%  DPET=   0  DPR=   0  pDPS=1101  TickCount=   299  MissTick= 0.00%  Tick=  1104|   191|  3434  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.505sec  DPE=19248| 0.00%  DPET=14733  DPR=  38  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.428sec  DPE=  497| 1.29%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   280|   216|   303  CritTick=   594|   432|   605|69.38%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.544sec  DPE=15511| 5.17%  DPET=   0  DPR=   0  pDPS= 297  Miss= 0.00%  Hit=  8751|  6810|  9535  Crit= 18694| 13621| 19069|68.69%
+    mirror_image                Count=   3.0|120.507sec  DPE= 4978| 0.00%  DPET=5724  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.0| 21.822sec  DPE= 5066| 0.00%  DPET=4279  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.838sec  DPE= 5079| 4.13%  DPET=   0  DPR=   0  pDPS= 237  Miss= 0.00%  Hit=  2472|  2357|  3300  Crit=  6206|  4715|  6601|69.81%
+    pyroblast                   Count=  87.9|  3.408sec  DPE= 7937|37.94%  DPET=6455  DPR=   8  pDPS=2177  Miss= 0.00%  Hit=  4099|  3570|  4998  Crit=  8903|  7140|  9997|68.02%
+    pyroblast_dot               Count=  88.6|  3.396sec  DPE=  507| 2.61%  DPET=   0  DPR=   0  pDPS= 150  TickCount=   167  MissTick= 0.00%  Tick=   178|    24|   227  CritTick=   385|    48|   455|44.02%  UpTime= 88.67%
+    rune_of_power               Count=   5.3| 58.727sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  28.2|  8.619sec  DPE= 2545| 4.18%  DPET=1978  DPR=   5  pDPS= 239  Miss= 0.00%  Crit=  2545|  1298|  3245|100.00%
+   mirror_image (DPS=131.78119312666925)
+    frostbolt                   Count= 216.2|  3.803sec  DPE=   69| 0.87%  DPET=  45  DPR=   0  pDPS= 132  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.70%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    berserking    : start=  1.9 refresh=  0.0 interval=247.7 trigger=  0.0 duration= 11.7 uptime=  7.54%  benefit= 30.29%
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.0 trigger=123.0 duration= 11.8 uptime= 11.62%
-    fireball      : start= 16.8 refresh= 13.8 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.16%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 45.7 trigger= 39.6 duration=  5.4 uptime= 10.98%
-    heating_up    : start= 80.7 refresh=  0.0 interval=  3.7 trigger=  3.7 duration=  1.2 uptime= 32.73%  benefit= 46.93%
-    hot_streak    : start= 71.3 refresh=  0.0 interval=  4.2 trigger=  4.2 duration=  1.0 uptime= 19.23%  benefit= 81.67%
-    pyroclasm     : start=  9.1 refresh=  1.5 interval= 32.6 trigger= 27.4 duration=  7.8 uptime= 23.83%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.81%
+    berserking    : start=  2.0 refresh=  0.0 interval=243.9 trigger=243.9 duration= 11.7 uptime=  7.67%  benefit= 13.19%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=122.0 trigger=122.0 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.4 refresh= 16.5 interval= 10.2 trigger=  5.5 duration=  5.9 uptime= 38.29%
+    firestorm     : start=  6.6 refresh=  0.9 interval= 42.7 trigger= 36.8 duration=  5.4 uptime= 11.88%
+    heating_up    : start= 86.0 refresh=  0.0 interval=  3.5 trigger=  3.5 duration=  1.2 uptime= 33.99%  benefit= 47.17%
+    hot_streak    : start= 76.8 refresh=  0.0 interval=  3.9 trigger=  3.9 duration=  0.9 uptime= 18.67%  benefit= 86.46%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.15%
   Up-Times:
-     22.00% : Mana Cap                      
+     18.86% : Mana Cap                      
   Procs:
-     80.67658 |   3.71925sec : Heating Up generated
-      8.91574 |  29.95250sec : Heating Up removed
-     24.50351 |  11.75132sec : Heating Up converted with Fire Blast
-     71.33664 |   4.19542sec : Hot Streak procs
-    223.45808 |   1.33873sec : Hot Streak spells used
-    155.65262 |   1.92066sec : Hot Streak spell crits
-      3.63941 |  59.67396sec : Hot Streak spell crits wasted
+     86.03886 |   3.50530sec : Heating Up generated
+      8.76450 |  29.33463sec : Heating Up removed
+     24.65371 |  11.62851sec : Heating Up converted with Fire Blast
+     76.82309 |   3.91951sec : Hot Streak procs
+    234.62993 |   1.28083sec : Hot Streak spells used
+    166.14037 |   1.80877sec : Hot Streak spell crits
+      3.27842 |  65.68513sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    196251.4 : mana_regen (mana)           (overflow=34.38%)
+    206999.5 : mana_regen (mana)           (overflow=31.09%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: undead undead mage fire 60
-  DPS=5703.586632177558 DPS-Error=10.862633884047582/0.19% DPS-Range=975.5422019188713/17.10%
-  DPR=8.656245333715164 RPS-Out=652.437419284199 RPS-In=648.7828507558809 Resource=mana Waiting=0.0 ApM=46.361123295192726
-  Talents: 3031022
+  DPS=5700.002903662487 DPS-Error=11.219936290990102/0.20% DPS-Range=789.6443521918504/13.85%
+  DPR=8.223987899655404 RPS-Out=686.0631944750744 RPS-In=682.8122596140734 Resource=mana Waiting=0 ApM=49.53053830407842
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=200|200(200)  agility=305|305(305)  stamina=435|415(415)  intellect=2360|2248(2248)  spirit=0|0(0)  health=8700|8300  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -1875,6 +1947,10 @@ Player: undead undead mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -1935,55 +2011,57 @@ Player: undead undead mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    combustion                  Count=   2.9|123.084sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.7|  4.082sec  DPE= 156| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|44.88%  UpTime= 67.82%
-    conflagration_flare_up      Count=  29.8|  9.883sec  DPE= 297| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   199|   177|   248  Crit=   425|   354|   495|43.07%
-    dragons_breath              Count=   0.2|122.117sec  DPE=4274| 0.05%  DPET=3654  DPR=   2  pDPS=   3  Miss= 0.00%  Crit=  4274|  4274|  4274|100.00%
-    fire_blast                  Count=  37.9|  7.942sec  DPE=5126|11.38%  DPET=   0  DPR=  10  pDPS= 649  Miss= 0.00%  Crit=  5126|  4151|  5811|100.00%
-    fireball                    Count=  57.7|  4.082sec  DPE=3449|11.14%  DPET=1827  DPR=   3  pDPS= 634  Miss= 0.00%  Hit=  2202|  1959|  2742  Crit=  4503|  3918|  5485|47.43%
-    ignite                      Count= 221.2|  1.353sec  DPE=1443|18.72%  DPET=   0  DPR=   0  pDPS=1067  TickCount=   298  MissTick= 0.00%  Tick=  1071|   190|  3123  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.718sec  DPE=4888| 0.00%  DPET=5623  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  13.0| 22.431sec  DPE=4344| 0.00%  DPET=3563  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  13.0| 22.405sec  DPE=4355| 3.31%  DPET=   0  DPR=   0  pDPS= 188  Miss= 0.00%  Hit=  2557|  2358|  3302  Crit=  5908|  4717|  6604|53.65%
-    pyroblast                   Count=  89.4|  3.352sec  DPE=9368|46.42%  DPET=6177  DPR=   9  pDPS=2650  Miss= 0.00%  Hit=  5683|  3572| 17001  Crit= 10435|  7143| 34003|65.26%
-    pyroblast_dot               Count=  90.2|  3.346sec  DPE= 507| 2.68%  DPET=   0  DPR=   0  pDPS= 153  TickCount=   169  MissTick= 0.00%  Tick=   180|     0|   227  CritTick=   386|     0|   455|43.75%  UpTime= 92.24%
-    rune_of_power               Count=   5.2| 59.372sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.5| 11.314sec  DPE=2545| 3.36%  DPET=1963  DPR=   5  pDPS= 192  Miss= 0.00%  Crit=  2545|  1299|  3247|100.00%
-    touch_of_the_grave          Count=  18.7| 16.388sec  DPE= 947| 1.04%  DPET=   0  DPR=   0  pDPS=  59  Miss= 0.00%  Hit=   697|   697|   697  Crit=  1394|  1394|  1394|35.93%
-   mirror_image (DPS=129.70072071717587)
-    frostbolt                   Count= 211.9|  3.873sec  DPE=  69| 0.86%  DPET=  44  DPR=   0  pDPS= 130  Miss= 0.00%  Hit=    51|    39|    54  Crit=   102|    78|   109|35.72%
+    combustion                  Count=   3.0|121.924sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  65.2|  3.027sec  DPE=  124| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   118  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    99|    0|   121|39.50%  UpTime= 65.10%
+    conflagration_flare_up      Count=  29.8|  9.616sec  DPE=  299| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   354|   495|43.75%
+    dragons_breath              Count=   0.8|161.824sec  DPE= 4274| 0.20%  DPET=3788  DPR=   2  pDPS=  11  Miss= 0.00%  Crit=  4274|  4274|  4274|100.00%
+    fire_blast                  Count=  38.2|  7.923sec  DPE= 5121|11.44%  DPET=   0  DPR=  10  pDPS= 652  Miss= 0.00%  Crit=  5121|  4151|  5811|100.00%
+    fireball                    Count=  65.2|  3.027sec  DPE= 3307|12.13%  DPET=1764  DPR=   3  pDPS= 690  Miss= 0.00%  Hit=  2198|  1959|  2742  Crit=  4394|  3918|  5485|44.86%
+    ignite                      Count= 237.4|  1.267sec  DPE= 1361|18.88%  DPET=   0  DPR=   0  pDPS=1076  TickCount=   299  MissTick= 0.00%  Tick=  1079|   191|  3208  UpTime= 99.57%
+    meteor                      Count=   5.8| 56.410sec  DPE=19284| 0.00%  DPET=14760  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.7|  6.415sec  DPE=  498| 1.30%  DPET=   0  DPR=   0  pDPS=  74  TickCount=    45  MissTick= 0.00%  Tick=   279|   216|   303  CritTick=   594|   432|   605|69.53%  UpTime=  0.01%
+    meteor_impact               Count=   5.7| 58.503sec  DPE=15547| 5.21%  DPET=   0  DPR=   0  pDPS= 298  Miss= 0.00%  Hit=  8769|  6813|  9539  Crit= 18675| 13627| 19077|69.28%
+    mirror_image                Count=   3.0|120.595sec  DPE= 4866| 0.00%  DPET=5594  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  14.1| 21.754sec  DPE= 5078| 0.00%  DPET=4159  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  14.0| 21.744sec  DPE= 5091| 4.18%  DPET=   0  DPR=   0  pDPS= 238  Miss= 0.00%  Hit=  2474|  2358|  3302  Crit=  6223|  4717|  6604|69.79%
+    pyroblast                   Count=  85.9|  3.507sec  DPE= 7897|37.05%  DPET=6308  DPR=   8  pDPS=2114  Miss= 0.00%  Hit=  4098|  3572|  5000  Crit=  8860|  7143| 10001|67.55%
+    pyroblast_dot               Count=  86.7|  3.494sec  DPE=  514| 2.60%  DPET=   0  DPR=   0  pDPS= 148  TickCount=   166  MissTick= 0.00%  Tick=   178|    24|   227  CritTick=   384|    48|   455|43.92%  UpTime= 88.76%
+    rune_of_power               Count=   5.3| 58.649sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  27.5|  8.758sec  DPE= 2564| 4.13%  DPET=1976  DPR=   5  pDPS= 235  Miss= 0.00%  Crit=  2564|  1299|  3247|100.00%
+    touch_of_the_grave          Count=  18.9| 16.229sec  DPE=  945| 1.05%  DPET=   0  DPR=   0  pDPS=  60  Miss= 0.00%  Hit=   697|   697|   697  Crit=  1394|  1394|  1394|35.65%
+   mirror_image (DPS=128.7403850443948)
+    frostbolt                   Count= 212.7|  3.861sec  DPE=   68| 0.85%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    54  Crit=   101|    78|   109|35.68%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=123.1 trigger=123.1 duration= 11.8 uptime= 11.61%
-    fireball      : start= 16.7 refresh= 13.7 interval= 11.7 trigger=  6.3 duration=  6.3 uptime= 35.24%
-    firestorm     : start=  6.1 refresh=  0.8 interval= 45.8 trigger= 39.6 duration=  5.4 uptime= 10.96%
-    heating_up    : start= 79.7 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.54%  benefit= 46.88%
-    hot_streak    : start= 70.4 refresh=  0.0 interval=  4.3 trigger=  4.3 duration=  1.0 uptime= 19.50%  benefit= 81.52%
-    pyroclasm     : start=  9.1 refresh=  1.6 interval= 32.5 trigger= 27.4 duration=  7.9 uptime= 23.99%
-    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.6 trigger= 38.6 duration= 14.6 uptime= 39.77%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  3.0 refresh=  0.0 interval=121.9 trigger=121.9 duration= 11.8 uptime= 11.72%
+    fireball      : start= 19.5 refresh= 16.5 interval= 10.2 trigger=  5.5 duration=  5.9 uptime= 38.48%
+    firestorm     : start=  6.6 refresh=  0.8 interval= 42.9 trigger= 37.6 duration=  5.3 uptime= 11.73%
+    heating_up    : start= 84.7 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.40%  benefit= 47.09%
+    hot_streak    : start= 75.4 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 18.92%  benefit= 86.72%
+    rune_of_power : start=  8.3 refresh=  0.0 interval= 38.3 trigger= 38.3 duration= 14.6 uptime= 40.17%
   Up-Times:
-     22.84% : Mana Cap                      
+     19.17% : Mana Cap                      
   Procs:
-     79.72656 |   3.76215sec : Heating Up generated
-      8.95043 |  30.04235sec : Heating Up removed
-     24.60140 |  11.67378sec : Heating Up converted with Fire Blast
-     70.36555 |   4.25041sec : Hot Streak procs
-    221.26394 |   1.35199sec : Hot Streak spells used
-    153.57703 |   1.94590sec : Hot Streak spell crits
-      3.48492 |  59.78811sec : Hot Streak spell crits wasted
+     84.65139 |   3.56253sec : Heating Up generated
+      8.86485 |  29.17568sec : Heating Up removed
+     24.90139 |  11.57555sec : Heating Up converted with Fire Blast
+     75.35151 |   3.99650sec : Hot Streak procs
+    231.71056 |   1.29702sec : Hot Streak spells used
+    163.37993 |   1.83930sec : Hot Streak spell crits
+      3.37703 |  64.28746sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    194330.4 : mana_regen (mana)           (overflow=35.03%)
+    205349.1 : mana_regen (mana)           (overflow=31.63%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
 Player: vulpera vulpera mage fire 60
-  DPS=5661.017091269668 DPS-Error=11.039859561542483/0.20% DPS-Range=1001.0546653559154/17.68%
-  DPR=8.68635946682388 RPS-Out=645.4443982213093 RPS-In=641.6910034533043 Resource=mana Waiting=0.0 ApM=46.447670722111866
-  Talents: 3031022
+  DPS=5655.172607984037 DPS-Error=11.110746420655712/0.20% DPS-Range=858.1679385229945/15.17%
+  DPR=8.258078528268456 RPS-Out=677.9025376946156 RPS-In=674.533220268922 Resource=mana Waiting=0 ApM=49.557849790727275
+  Talents: 3031023
   Covenant: invalid
   Core Stats:    strength=195|195(195)  agility=309|309(309)  stamina=433|413(413)  intellect=2363|2251(2251)  spirit=0|0(0)  health=8660|8260  mana=50000|50000
   Generic Stats: mastery=16.71%|16.71%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
@@ -2025,6 +2103,10 @@ Player: vulpera vulpera mage fire 60
     fire_blast,use_off_gcd=1,use_while_casting=1,if=!variable.fire_blast_pooling&(variable.time_to_combustion>0|variable.disable_combustion)&(active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion))&!firestarter.active&!buff.hot_streak.react
     fire_blast,use_off_gcd=1,use_while_casting=1,if=firestarter.active&charges>=1&!variable.fire_blast_pooling&(!action.fireball.executing&!action.pyroblast.in_flight&buff.heating_up.react|action.fireball.executing&!buff.hot_streak.react|action.pyroblast.in_flight&buff.heating_up.react&!buff.hot_streak.react)
     call_action_list,name=standard_rotation,if=(variable.time_to_combustion>0|variable.disable_combustion)&buff.rune_of_power.down
+  Priorities (actions.active_talents):
+    living_bomb,if=active_enemies>1&buff.combustion.down&(variable.time_to_combustion>cooldown.living_bomb.duration|variable.time_to_combustion<=0|variable.disable_combustion)
+    meteor,if=!variable.disable_combustion&variable.time_to_combustion<=0|(cooldown.meteor.duration<variable.time_to_combustion&!talent.rune_of_power.enabled)|talent.rune_of_power.enabled&buff.rune_of_power.up&variable.time_to_combustion>action.meteor.cooldown|fight_remains<variable.time_to_combustion|variable.disable_combustion
+    dragons_breath,if=talent.alexstraszas_fury.enabled&(buff.combustion.down&!buff.hot_streak.react)
   Priorities (actions.combustion_phase):
     lights_judgment,if=buff.combustion.down
     variable,name=extended_combustion_remains,op=set,value=buff.combustion.remains+buff.combustion.duration*(cooldown.combustion.remains<buff.combustion.remains)
@@ -2085,48 +2167,50 @@ Player: vulpera vulpera mage fire 60
     flamestrike,if=active_enemies>=variable.hard_cast_flamestrike&(time-buff.combustion.last_expire>variable.delay_flamestrike|variable.disable_combustion)
     fireball/scorch
   Actions:
-    bag_of_tricks               Count=   2.9|123.818sec  DPE=6854| 1.19%  DPET=5247  DPR=   0  pDPS=  68  Miss= 0.00%  Hit=  5024|  5024|  5024  Crit= 10049| 10049| 10049|36.43%
-    combustion                  Count=   2.9|124.013sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    conflagration               Count=  57.2|  4.212sec  DPE= 157| 0.53%  DPET=   0  DPR=   0  pDPS=  30  TickCount=   124  MissTick= 0.00%  Tick=    48|     0|    61  CritTick=   102|     0|   121|44.78%  UpTime= 67.75%
-    conflagration_flare_up      Count=  29.8|  9.546sec  DPE= 297| 0.52%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   425|   354|   496|43.28%
-    dragons_breath              Count=   0.1|  0.000sec  DPE=4279| 0.03%  DPET=3934  DPR=   2  pDPS=   2  Miss= 0.00%  Crit=  4279|  4279|  4279|100.00%
-    fire_blast                  Count=  37.7|  7.962sec  DPE=5126|11.40%  DPET=   0  DPR=  10  pDPS= 645  Miss= 0.00%  Crit=  5127|  4156|  5819|100.00%
-    fireball                    Count=  57.2|  4.212sec  DPE=3464|11.17%  DPET=1842  DPR=   3  pDPS= 631  Miss= 0.00%  Hit=  2211|  1961|  2746  Crit=  4524|  3923|  5492|47.42%
-    ignite                      Count= 218.9|  1.366sec  DPE=1451|18.75%  DPET=   0  DPR=   0  pDPS=1061  TickCount=   298  MissTick= 0.00%  Tick=  1065|    66|  3179  UpTime= 99.57%
-    mirror_image                Count=   3.0|120.649sec  DPE=4854| 0.00%  DPET=5586  DPR=   7  pDPS=   0
-    phoenix_flames              Count=  12.7| 22.513sec  DPE=4313| 0.00%  DPET=3537  DPR=   0  pDPS=   0
-    phoenix_flames_splash       Count=  12.7| 22.513sec  DPE=4324| 3.24%  DPET=   0  DPR=   0  pDPS= 183  Miss= 0.00%  Hit=  2561|  2361|  3306  Crit=  5868|  4723|  6612|53.30%
-    pyroblast                   Count=  88.4|  3.366sec  DPE=9384|46.28%  DPET=6189  DPR=   9  pDPS=2622  Miss= 0.00%  Hit=  5703|  3576| 17023  Crit= 10439|  7153| 34046|65.27%
-    pyroblast_dot               Count=  89.1|  3.368sec  DPE= 511| 2.69%  DPET=   0  DPR=   0  pDPS= 152  TickCount=   169  MissTick= 0.00%  Tick=   180|     0|   228  CritTick=   387|     0|   455|43.61%  UpTime= 91.76%
-    rune_of_power               Count=   5.2| 59.637sec  DPE=   0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
-    scorch                      Count=  22.2| 11.049sec  DPE=2548| 3.34%  DPET=1963  DPR=   5  pDPS= 189  Miss= 0.00%  Crit=  2548|  1300|  3251|100.00%
-   mirror_image (DPS=128.72011702639486)
-    frostbolt                   Count= 211.9|  3.860sec  DPE=  68| 0.86%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    55  Crit=   101|    78|   109|35.80%
+    bag_of_tricks               Count=   3.0|123.160sec  DPE= 6798| 1.18%  DPET=5204  DPR=   0  pDPS=  68  Miss= 0.00%  Hit=  5024|  5024|  5024  Crit= 10049| 10049| 10049|35.31%
+    combustion                  Count=   2.9|123.299sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    conflagration               Count=  64.6|  3.047sec  DPE=  124| 0.47%  DPET=   0  DPR=   0  pDPS=  27  TickCount=   117  MissTick= 0.00%  Tick=    48|    0|    61  CritTick=    98|    0|   121|39.28%  UpTime= 64.66%
+    conflagration_flare_up      Count=  30.1|  9.491sec  DPE=  298| 0.53%  DPET=   0  DPR=   0  pDPS=  30  Miss= 0.00%  Hit=   200|   177|   248  Crit=   426|   354|   496|43.40%
+    dragons_breath              Count=   0.5|132.566sec  DPE= 4279| 0.14%  DPET=3888  DPR=   2  pDPS=   8  Miss= 0.00%  Crit=  4279|  4279|  4279|100.00%
+    fire_blast                  Count=  38.1|  7.946sec  DPE= 5123|11.49%  DPET=   0  DPR=  10  pDPS= 649  Miss= 0.00%  Crit=  5123|  4156|  5819|100.00%
+    fireball                    Count=  64.6|  3.047sec  DPE= 3315|12.15%  DPET=1766  DPR=   3  pDPS= 685  Miss= 0.00%  Hit=  2209|  1961|  2746  Crit=  4406|  3923|  5492|44.71%
+    ignite                      Count= 234.9|  1.281sec  DPE= 1364|18.88%  DPET=   0  DPR=   0  pDPS=1067  TickCount=   299  MissTick= 0.00%  Tick=  1071|    66|  3142  UpTime= 99.57%
+    meteor                      Count=   5.7| 58.989sec  DPE=19353| 0.00%  DPET=15436  DPR=  39  pDPS=   0
+    meteor_burn                 Count=  44.1|  6.485sec  DPE=  499| 1.29%  DPET=   0  DPR=   0  pDPS=  73  TickCount=    44  MissTick= 0.00%  Tick=   281|   216|   303  CritTick=   595|   433|   606|69.30%  UpTime=  0.01%
+    meteor_impact               Count=   5.6| 59.154sec  DPE=15617| 5.20%  DPET=   0  DPR=   0  pDPS= 294  Miss= 0.00%  Hit=  8800|  6822|  9551  Crit= 18728| 13644| 19101|69.54%
+    mirror_image                Count=   3.0|120.543sec  DPE= 4861| 0.00%  DPET=5589  DPR=   7  pDPS=   0
+    phoenix_flames              Count=  13.8| 21.973sec  DPE= 5006| 0.00%  DPET=4103  DPR=   0  pDPS=   0
+    phoenix_flames_splash       Count=  13.8| 21.937sec  DPE= 5019| 4.08%  DPET=   0  DPR=   0  pDPS= 231  Miss= 0.00%  Hit=  2486|  2361|  3306  Crit=  6191|  4723|  6612|68.36%
+    pyroblast                   Count=  85.1|  3.518sec  DPE= 7912|37.07%  DPET=6320  DPR=   8  pDPS=2098  Miss= 0.00%  Hit=  4102|  3576|  5007  Crit=  8873|  7153| 10014|67.63%
+    pyroblast_dot               Count=  85.9|  3.515sec  DPE=  515| 2.60%  DPET=   0  DPR=   0  pDPS= 147  TickCount=   165  MissTick= 0.00%  Tick=   178|    24|   228  CritTick=   384|    48|   455|43.86%  UpTime= 88.24%
+    rune_of_power               Count=   5.2| 59.366sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    scorch                      Count=  26.9|  7.916sec  DPE= 2565| 4.07%  DPET=1974  DPR=   5  pDPS= 230  Miss= 0.00%  Crit=  2565|  1300|  3251|100.00%
+   mirror_image (DPS=128.50918111644086)
+    frostbolt                   Count= 212.8|  3.861sec  DPE=   68| 0.86%  DPET=  43  DPR=   0  pDPS= 129  Miss= 0.00%  Hit=    51|    39|    55  Crit=   101|    78|   109|35.66%
 
   Constant Buffs:
     arcane_intellect/battle_shout/power_word_fortitude
   Dynamic Buffs:
-    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.54%
-    combustion    : start=  2.9 refresh=  0.0 interval=124.1 trigger=124.1 duration= 11.8 uptime= 11.50%
-    fireball      : start= 16.5 refresh= 13.6 interval= 11.9 trigger=  6.4 duration=  6.4 uptime= 35.01%
-    firestorm     : start=  6.0 refresh=  0.7 interval= 46.3 trigger= 40.4 duration=  5.3 uptime= 10.74%
-    heating_up    : start= 78.9 refresh=  0.0 interval=  3.8 trigger=  3.8 duration=  1.2 uptime= 32.40%  benefit= 46.94%
-    hot_streak    : start= 69.8 refresh=  0.0 interval=  4.3 trigger=  4.3 duration=  1.0 uptime= 19.75%  benefit= 81.88%
-    pyroclasm     : start=  9.0 refresh=  1.6 interval= 32.8 trigger= 27.6 duration=  8.0 uptime= 23.85%
-    rune_of_power : start=  8.1 refresh=  0.0 interval= 38.9 trigger= 38.9 duration= 14.6 uptime= 39.41%
+    bloodlust     : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.48%
+    combustion    : start=  2.9 refresh=  0.0 interval=123.3 trigger=123.3 duration= 11.8 uptime= 11.58%
+    fireball      : start= 19.3 refresh= 16.4 interval= 10.3 trigger=  5.5 duration=  6.0 uptime= 38.34%
+    firestorm     : start=  6.5 refresh=  0.9 interval= 43.4 trigger= 37.7 duration=  5.3 uptime= 11.57%
+    heating_up    : start= 83.8 refresh=  0.0 interval=  3.6 trigger=  3.6 duration=  1.2 uptime= 34.06%  benefit= 47.14%
+    hot_streak    : start= 74.7 refresh=  0.0 interval=  4.0 trigger=  4.0 duration=  1.0 uptime= 19.10%  benefit= 86.74%
+    rune_of_power : start=  8.2 refresh=  0.0 interval= 38.7 trigger= 38.7 duration= 14.6 uptime= 39.68%
   Up-Times:
-     23.48% : Mana Cap                      
+     20.01% : Mana Cap                      
   Procs:
-     78.87443 |   3.79472sec : Heating Up generated
-      8.66130 |  30.77057sec : Heating Up removed
-     24.03181 |  11.89656sec : Heating Up converted with Fire Blast
-     69.80132 |   4.27134sec : Hot Streak procs
-    218.91780 |   1.36640sec : Hot Streak spells used
-    151.94589 |   1.96244sec : Hot Streak spell crits
-      3.27014 |  59.24591sec : Hot Streak spell crits wasted
+     83.79814 |   3.59271sec : Heating Up generated
+      8.66821 |  29.82777sec : Heating Up removed
+     24.40835 |  11.71747sec : Heating Up converted with Fire Blast
+     74.71172 |   4.01894sec : Hot Streak procs
+    229.32251 |   1.31048sec : Hot Streak spells used
+    161.41299 |   1.85852sec : Hot Streak spell crits
+      2.90313 |  67.55808sec : Hot Streak spell crits wasted
       1.00000 |   0.00000sec : Direct Ignite applications
   Gains:
-    192220.3 : mana_regen (mana)           (overflow=35.73%)
+    202868.8 : mana_regen (mana)           (overflow=32.46%)
     Pet "mirror_image" Gains:
   Waiting:  0.00%
 
@@ -2134,10 +2218,10 @@ Player: vulpera vulpera mage fire 60
  *** Targets *** 
 
 Target: Fluffy_Pillow humanoid enemy unknown 63
-  DTPS=79662.502380865 DTPS-Error=67.94443937377461/0.09% DTPS-Range=4473.723446639262/5.62%
-  DPR=0.0 RPS-Out=74978.72448754279 RPS-In=0.0 Resource=health Waiting=0.0 ApM=0.0
+  DTPS=79643.53510206971 DTPS-Error=83.26198525577819/0.10% DTPS-Range=4427.588030272826/5.56%
+  DPR=0 RPS-Out=74520.39958936372 RPS-In=0 Resource=health Waiting=0 ApM=0
   Talents: 0000000
-  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|20467829  mana=0|0
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|19388794  mana=0|0
   Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
   Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
   Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
@@ -2151,34 +2235,34 @@ Target: Fluffy_Pillow humanoid enemy unknown 63
   Constant Buffs:
     arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
   Dynamic Buffs:
-    Health Decade (0 - 10)   : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 45.6 uptime= 10.02%
-    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 25.5 uptime=  7.48%
-    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.2 uptime=  9.63%
-    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 36.4 uptime= 12.24%
-    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 33.4 uptime= 11.27%
-    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.8 uptime= 10.07%
-    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 39.7 uptime= 13.46%
-    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 38.1 uptime= 12.91%
-    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 23.7 uptime=  8.04%
-    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 16.3 uptime=  4.88%
+    Health Decade (0 - 10)   : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 46.6 uptime= 10.82%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 25.8 uptime=  7.66%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.4 uptime=  9.32%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 36.8 uptime= 12.33%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 33.4 uptime= 11.21%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.3 uptime=  9.89%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 38.6 uptime= 13.02%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 38.8 uptime= 13.09%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 25.2 uptime=  8.51%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 15.0 uptime=  4.15%
   Waiting:  0.00%
 
 
 Baseline Performance:
   No-Networking = true
   RNG Engine    = xoshiro256+
-  Iterations    = 2437 (185, 148, 150, 155, 158, 148, 155, 158, 144, 148, 146, 142, 147, 148, 145, 160)
-  TotalEvents   = 141885909
-  MaxEventQueue = 522
-  TargetHealth  = 20467830
-  SimSeconds    = 725151.541
-  CpuSeconds    = 277.75
-  WallSeconds   = 20.0555488
-  InitSeconds   = 0.1982951
-  MergeSeconds  = 0.10543390000000001
-  AnalyzeSeconds= 0.0062897000000000005
-  SpeedUp       = 2628
-  EndTime       = 2020-10-27 16:33:43-0000 (1603816423)
+  Iterations    = 1740 (137, 107, 111, 111, 111, 100, 104, 105, 106, 111, 111, 108, 104, 101, 104, 109)
+  TotalEvents   = 102522581
+  MaxEventQueue = 509
+  TargetHealth  = 19388795
+  SimSeconds    = 518463.172
+  CpuSeconds    = 204.921875
+  WallSeconds   = 14.600870200000001
+  InitSeconds   = 0.2019812
+  MergeSeconds  = 0.1153779
+  AnalyzeSeconds= 0.0053312
+  SpeedUp       = 2554
+  EndTime       = 2020-10-28 21:45:53-0000 (1603921553)
 
 
 Waiting:
