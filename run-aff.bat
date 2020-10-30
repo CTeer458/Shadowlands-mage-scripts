@@ -1,0 +1,9 @@
+.\simc.exe .\affliction\legendaries.simc
+.\simc.exe .\affliction\soulbinds-16.simc
+.\simc.exe .\affliction\soulbinds-25.simc
+.\simc.exe .\affliction\soulbinds-max.simc
+.\simc.exe .\affliction\races-alli.simc
+.\simc.exe .\affliction\races-horde.simc
+.\simc.exe .\affliction\covenant-abilities.simc
+.\simc.exe .\affliction\relics.simc
+.\simc.exe .\affliction\stats.simc

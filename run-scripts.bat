@@ -1,31 +1,3 @@
-.\simc.exe .\frost\legendaries.simc
-.\simc.exe .\frost\legendaries-cov.simc
-.\simc.exe .\frost\soulbinds-16.simc
-.\simc.exe .\frost\soulbinds-25.simc
-.\simc.exe .\frost\soulbinds-max.simc
-.\simc.exe .\frost\races-alli.simc
-.\simc.exe .\frost\races-horde.simc
-.\simc.exe .\frost\covenant-abilities.simc
-.\simc.exe .\frost\relics.simc
-.\simc.exe .\frost\stats.simc
-
-.\simc.exe .\fire\legendaries.simc
-.\simc.exe .\fire\legendaries-cov.simc
-.\simc.exe .\fire\soulbinds-16.simc
-.\simc.exe .\fire\soulbinds-25.simc
-.\simc.exe .\fire\soulbinds-max.simc
-.\simc.exe .\fire\races-alli.simc
-.\simc.exe .\fire\races-horde.simc
-.\simc.exe .\fire\covenant-abilities.simc
-.\simc.exe .\fire\relics.simc
-.\simc.exe .\fire\stats.simc
-
-.\simc.exe .\affliction\legendaries.simc
-.\simc.exe .\affliction\soulbinds-16.simc
-.\simc.exe .\affliction\soulbinds-25.simc
-.\simc.exe .\affliction\soulbinds-max.simc
-.\simc.exe .\affliction\races-alli.simc
-.\simc.exe .\affliction\races-horde.simc
-.\simc.exe .\affliction\covenant-abilities.simc
-.\simc.exe .\affliction\relics.simc
-.\simc.exe .\affliction\stats.simc
+run-aff.bat
+run-fire.bat
+run-frost.bat

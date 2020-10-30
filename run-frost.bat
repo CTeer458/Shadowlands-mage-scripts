@@ -1,0 +1,10 @@
+.\simc.exe .\frost\legendaries.simc
+.\simc.exe .\frost\legendaries-cov.simc
+.\simc.exe .\frost\soulbinds-16.simc
+.\simc.exe .\frost\soulbinds-25.simc
+.\simc.exe .\frost\soulbinds-max.simc
+.\simc.exe .\frost\races-alli.simc
+.\simc.exe .\frost\races-horde.simc
+.\simc.exe .\frost\covenant-abilities.simc
+.\simc.exe .\frost\relics.simc
+.\simc.exe .\frost\stats.simc

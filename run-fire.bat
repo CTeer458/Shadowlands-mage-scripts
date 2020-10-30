@@ -1,0 +1,10 @@
+.\simc.exe .\fire\legendaries.simc
+.\simc.exe .\fire\legendaries-cov.simc
+.\simc.exe .\fire\soulbinds-16.simc
+.\simc.exe .\fire\soulbinds-25.simc
+.\simc.exe .\fire\soulbinds-max.simc
+.\simc.exe .\fire\races-alli.simc
+.\simc.exe .\fire\races-horde.simc
+.\simc.exe .\fire\covenant-abilities.simc
+.\simc.exe .\fire\relics.simc
+.\simc.exe .\fire\stats.simc
