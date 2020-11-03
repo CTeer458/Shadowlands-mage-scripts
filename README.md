@@ -7,6 +7,7 @@ Run run-scripts.bat with your simc executable in the top level directory
 
 ## Known issues
 * Aff APL is unfinished
+* Aff scripts are wip
 
 ## Things
 * Assume everything is using x2 potency where possible unless it called out in the name
