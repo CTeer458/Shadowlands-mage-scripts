@@ -3,7 +3,7 @@
 Run run-scripts.bat with your simc executable in the top level directory
 
 * inputs are in ./spec/
-* results go to ./spec/html or ./spec/txt
+* results go to ./spec/target/html or ./spec/target/txt
 
 ## Known issues
 * Aff APL is unfinished
@@ -11,4 +11,3 @@ Run run-scripts.bat with your simc executable in the top level directory
 
 ## Things
 * Assume everything is using x2 potency where possible unless it called out in the name
-* Its all 1 target unless called out
