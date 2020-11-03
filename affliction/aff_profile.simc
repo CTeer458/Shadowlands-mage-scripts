@@ -19,6 +19,10 @@ gear_haste_rating=500
 gear_mastery_rating=500
 gear_versatility_rating=500
 
+$(conduit1)=focused_malignancy:6
+$(conduit2)=cold_embrace:6
+
+$(profile)=affliction
 
 actions.precombat=flask
 actions.precombat+=/food
@@ -33,22 +37,24 @@ actions.precombat+=/haunt
 actions.precombat+=/shadow_bolt,if=!talent.haunt.enabled&spell_targets.seed_of_corruption_aoe<3&!equipped.169314
 
 # Executed every time the actor is available.
+
 actions=phantom_singularity
 actions+=/vile_taint,if=soul_shard>1
-actions+=/siphon_life,if=refreshable
 actions+=/agony,if=refreshable
+actions+=/drain_soul,if=buff.decimating_bolt.up
 actions+=/unstable_affliction,if=refreshable
 actions+=/corruption,if=refreshable
+actions+=/siphon_life,if=refreshable
 actions+=/haunt
 actions+=/scouring_tithe
 actions+=/soul_rot
-actions+=/decimating_bolt
 actions+=/impending_catastrophe
 actions+=/call_action_list,name=darkglare_prep,if=cooldown.summon_darkglare.remains<2&(dot.phantom_singularity.remains>2|!talent.phantom_singularity.enabled)
 actions+=/dark_soul,if=cooldown.summon_darkglare.remains>time_to_die
 actions+=/call_action_list,name=cooldowns
 actions+=/malefic_rapture,if=dot.vile_taint.ticking
 actions+=/malefic_rapture,if=!talent.vile_taint.enabled
+actions+=/decimating_bolt
 actions+=/drain_life,if=buff.inevitable_demise.stack>30
 actions+=/drain_soul
 actions+=/shadow_bolt
