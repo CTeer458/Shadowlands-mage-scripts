@@ -1,4 +1,5 @@
 .\simc.exe .\affliction\legendaries.simc
+.\simc.exe .\affliction\legendaries-cov.simc
 .\simc.exe .\affliction\soulbinds-16.simc
 .\simc.exe .\affliction\soulbinds-25.simc
 .\simc.exe .\affliction\soulbinds-max.simc
