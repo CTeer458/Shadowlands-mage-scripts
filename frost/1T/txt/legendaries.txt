@@ -1,0 +1,797 @@
+
+ * Beta! Beta! Beta! Beta! Beta! Beta! 
+ * Not All classes are yet supported. 
+ * Some class models still need tweaking. 
+ * Some class action lists need tweaking. 
+ * Some class BiS gear setups need tweaking. 
+ * Some trinkets not yet implemented. 
+ * Constructive feedback regarding our output will shorten the Beta phase dramatically. 
+ * Beta! Beta! Beta! Beta! Beta! Beta! 
+
+DPS Ranking:
+  54687 100.0%  Raid
+   6246  11.4%  frost
+   6244  11.4%  slick_ice
+   6210  11.4%  freezing_winds
+   6146  11.2%  expanded_potential
+   6092  11.1%  cold_front
+   5974  10.9%  disciplinary_command
+   5973  10.9%  temporal_warp
+   5942  10.9%  glacial_fragments
+   5861  10.7%  no_lego
+
+HPS Ranking:
+      0 100.0%%  Raid
+
+Player: cold_front troll mage frost 60
+  DPS=6091.755384462604 DPS-Error=10.939042415579339/0.18% DPS-Range=953.0212039606604/15.64%
+  DPR=10.992512334235734 RPS-Out=552.8707628394764 RPS-In=551.0982655100038 Resource=mana Waiting=0 ApM=47.29439390413421
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  30.8|  9.600sec  DPE=10036| 0.00%  DPET=8948  DPR=  20  pDPS=   0
+    flurry_bolt                 Count=  92.3|  3.140sec  DPE= 2620|13.27%  DPET=   0  DPR=   0  pDPS= 809  Miss= 0.00%  Hit=  1650|  1403|  1965  Crit=  3290|  2807|  3929|59.15%
+    flurry_icicle               Count=  30.6|  9.617sec  DPE= 2213| 3.72%  DPET=   0  DPR=   0  pDPS= 227  Miss= 0.00%  Hit=  1242|  1057|  1479  Crit=  2483|  2113|  2959|78.92%
+    frostbolt                   Count= 104.3|  2.853sec  DPE= 4742|16.05%  DPET=3192  DPR=   5  pDPS= 978  Miss= 0.00%  Hit=  2031|  1740|  2436  Crit=  4075|  3480|  4872|36.81%
+    frostbolt_icicle            Count= 104.3|  2.840sec  DPE= 1938|11.10%  DPET=   0  DPR=   0  pDPS= 676  Miss= 0.00%  Hit=  1259|  1057|  1479  Crit=  2490|  2113|  2959|55.70%
+    frozen_orb                  Count=   5.4| 60.692sec  DPE=18073| 0.00%  DPET=15551  DPR=  36  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.624sec  DPE=  923| 5.41%  DPET=   0  DPR=   0  pDPS= 329  Miss= 0.00%  Hit=   704|   549|   768  Crit=  1404|  1097|  1536|31.28%
+    ice_lance                   Count=  84.5|  3.528sec  DPE=10324|47.91%  DPET=9127  DPR=  21  pDPS=2919  Miss= 0.00%  Hit=  5777|  4309|  6937  Crit= 11556|  8617| 13874|78.99%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    legendary_frozen_orb        Count=   2.8| 98.731sec  DPE=16723| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    legendary_frozen_orb_bolt   Count=  54.2|  3.417sec  DPE=  852| 2.53%  DPET=   0  DPR=   0  pDPS= 154  Miss= 0.00%  Hit=   645|   549|   768  Crit=  1286|  1097|  1536|32.33%
+    rune_of_power               Count=   6.6| 46.695sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking       : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze     : start= 31.1 refresh=  0.4 interval=  9.5 trigger=  9.4 duration=  2.9 uptime= 30.36%
+    chain_reaction   : start=  4.3 refresh= 80.0 interval= 68.8 trigger=  3.5 duration= 66.1 uptime= 95.63%
+    cold_front       : start=  3.8 refresh=188.1 interval= 89.4 trigger=  1.6 duration= 76.3 uptime= 95.54%
+    cold_front_ready : start=  2.8 refresh=  0.0 interval= 99.3 trigger= 99.3 duration=  3.7 uptime=  3.44%
+    fingers_of_frost : start= 29.3 refresh= 10.8 interval= 10.2 trigger=  7.4 duration=  1.8 uptime= 18.05%  benefit= 45.21%
+    icicles          : start= 44.7 refresh= 91.4 interval=  6.8 trigger=  2.2 duration=  3.8 uptime= 56.81%
+    icy_veins        : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 50.4 uptime= 34.11%
+    rune_of_power    : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.17%
+  Up-Times:
+     23.86% : Mana Cap                      
+  Procs:
+     31.58562 |   9.39649sec : Brain Freeze
+     31.58562 |   9.39649sec : Brain Freeze from Frostbolt
+     30.84108 |   9.60113sec : Brain Freeze used
+     40.02304 |   7.54792sec : Fingers of Frost
+     15.81883 |  18.06338sec : Fingers of Frost from Frostbolt
+      8.16925 |  38.44141sec : Fingers of Frost from Frozen Orb Initial Impact
+     16.03496 |  17.53470sec : Fingers of Frost from Frozen Orb Tick
+     14.95034 |  18.77134sec : Fingers of Frost wasted due to Winter's Chill
+    184.54033 |   3.14011sec : Winter's Chill stacks applied
+     91.96941 |   3.16374sec : Winter's Chill stacks consumed
+     30.76321 |   9.59640sec : Winter's Chill stacks consumed by Frostbolt
+     61.20620 |   4.75802sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    165139.1 : mana_regen (mana)           (overflow=44.80%)
+  Waiting:  0.00%
+
+Player: disciplinary_command troll mage frost 60
+  DPS=5974.431620002269 DPS-Error=11.85331084256897/0.20% DPS-Range=1010.2632521842597/16.91%
+  DPR=9.10283090695814 RPS-Out=654.8716343036959 RPS-In=651.5712346400107 Resource=mana Waiting=0 ApM=47.53901143867918
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    arcane_explosion            Count=   7.3| 43.418sec  DPE= 1714| 0.70%  DPET=1512  DPR=   0  pDPS=  42  Miss= 0.00%  Hit=  1441|  1293|  1811  Crit=  2863|  2586|  3621|19.19%
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    fire_blast                  Count=   9.5| 32.804sec  DPE= 2391| 1.28%  DPET=2072  DPR=   5  pDPS=  76  Miss= 0.00%  Hit=  2005|  1705|  2388  Crit=  4011|  3411|  4775|19.24%
+    flurry                      Count=  29.0| 10.104sec  DPE=10754| 0.00%  DPET=9549  DPR=  22  pDPS=   0
+    flurry_bolt                 Count=  86.9|  3.300sec  DPE= 2803|13.63%  DPET=   0  DPR=   0  pDPS= 814  Miss= 0.00%  Hit=  1653|  1403|  1965  Crit=  3602|  2807|  4519|59.00%
+    flurry_icicle               Count=  28.8| 10.122sec  DPE= 2384| 3.85%  DPET=   0  DPR=   0  pDPS= 230  Miss= 0.00%  Hit=  1245|  1057|  1479  Crit=  2696|  2113|  3402|79.00%
+    frostbolt                   Count=  98.5|  3.004sec  DPE= 5016|16.28%  DPET=3366  DPR=   5  pDPS= 973  Miss= 0.00%  Hit=  2036|  1740|  2436  Crit=  4464|  3480|  5602|36.82%
+    frostbolt_icicle            Count=  98.4|  3.020sec  DPE= 2066|11.38%  DPET=   0  DPR=   0  pDPS= 680  Miss= 0.00%  Hit=  1263|  1057|  1479  Crit=  2701|  2113|  3402|56.32%
+    frozen_orb                  Count=   5.4| 60.728sec  DPE=18585| 0.00%  DPET=15991  DPR=  37  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.623sec  DPE=  948| 5.66%  DPET=   0  DPR=   0  pDPS= 338  Miss= 0.00%  Hit=   704|   549|   768  Crit=  1513|  1097|  1766|30.21%
+    ice_lance                   Count=  76.5|  3.883sec  DPE=11026|47.22%  DPET=9769  DPR=  22  pDPS=2821  Miss= 0.00%  Hit=  5756|  4309|  6937  Crit= 12460|  8617| 15955|78.92%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.683sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking           : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.51%
+    bloodlust            : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze         : start= 29.4 refresh=  0.4 interval= 10.1 trigger=  9.9 duration=  3.1 uptime= 30.28%
+    chain_reaction       : start=  5.9 refresh= 70.5 interval= 52.7 trigger=  3.9 duration= 47.8 uptime= 93.90%
+    disciplinary_command : start=  9.5 refresh=  0.0 interval= 32.8 trigger= 32.8 duration= 19.4 uptime= 61.75%
+    fingers_of_frost     : start= 24.6 refresh=  6.5 interval= 12.1 trigger=  9.5 duration=  1.8 uptime= 14.47%  benefit= 39.56%
+    icicles              : start= 41.1 refresh= 87.5 interval=  7.3 trigger=  2.3 duration=  4.1 uptime= 56.60%
+    icy_veins            : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 48.8 uptime= 33.03%
+    rune_of_power        : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.18%
+  Up-Times:
+     17.05% : Mana Cap                      
+  Procs:
+     29.75248 |   9.93314sec : Brain Freeze
+     29.75248 |   9.93314sec : Brain Freeze from Frostbolt
+     29.03973 |  10.13110sec : Brain Freeze used
+     31.15574 |   9.65842sec : Fingers of Frost
+     15.03417 |  18.86868sec : Fingers of Frost from Frostbolt
+      5.42114 |  60.79632sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.70044 |  25.96938sec : Fingers of Frost from Frozen Orb Tick
+     11.40524 |  23.98757sec : Fingers of Frost wasted due to Winter's Chill
+    173.75368 |   3.30826sec : Winter's Chill stacks applied
+     86.59515 |   3.33461sec : Winter's Chill stacks consumed
+     28.96663 |  10.12761sec : Winter's Chill stacks consumed by Frostbolt
+     57.62853 |   5.01440sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    195247.4 : mana_regen (mana)           (overflow=34.72%)
+  Waiting:  0.00%
+
+Player: expanded_potential troll mage frost 60
+  DPS=6145.573213829128 DPS-Error=11.085000627058239/0.18% DPS-Range=969.6301150075633/15.78%
+  DPR=11.185856276949522 RPS-Out=548.0997265356277 RPS-In=546.2548979888265 Resource=mana Waiting=0 ApM=47.770105402208664
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  35.6|  8.303sec  DPE=10041| 0.00%  DPET=8978  DPR=  20  pDPS=   0
+    flurry_bolt                 Count= 106.5|  2.723sec  DPE= 2620|15.19%  DPET=   0  DPR=   0  pDPS= 934  Miss= 0.00%  Hit=  1651|  1403|  1965  Crit=  3294|  2807|  3929|58.99%
+    flurry_icicle               Count=  35.4|  8.313sec  DPE= 2214| 4.26%  DPET=   0  DPR=   0  pDPS= 262  Miss= 0.00%  Hit=  1243|  1057|  1479  Crit=  2488|  2113|  2959|78.58%
+    frostbolt                   Count=  99.0|  3.008sec  DPE= 4826|15.40%  DPET=3249  DPR=   5  pDPS= 947  Miss= 0.00%  Hit=  2030|  1740|  2436  Crit=  4072|  3480|  4872|39.46%
+    frostbolt_icicle            Count=  99.0|  2.993sec  DPE= 1969|10.61%  DPET=   0  DPR=   0  pDPS= 652  Miss= 0.00%  Hit=  1258|  1057|  1479  Crit=  2489|  2113|  2959|58.30%
+    frozen_orb                  Count=   5.4| 60.715sec  DPE=18355| 0.00%  DPET=15815  DPR=  37  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.626sec  DPE=  937| 5.44%  DPET=   0  DPR=   0  pDPS= 334  Miss= 0.00%  Hit=   703|   549|   768  Crit=  1405|  1097|  1536|33.26%
+    ice_lance                   Count=  87.4|  3.403sec  DPE=10319|49.09%  DPET=9181  DPR=  21  pDPS=3017  Miss= 0.00%  Hit=  5777|  4309|  6937  Crit= 11559|  8617| 13874|78.87%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.696sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking         : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 20.00%
+    bloodlust          : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze       : start= 27.3 refresh=  2.6 interval= 10.9 trigger=  9.9 duration=  4.4 uptime= 40.21%
+    chain_reaction     : start=  4.2 refresh= 83.1 interval= 71.4 trigger=  3.4 duration= 68.4 uptime= 95.69%
+    expanded_potential : start=  8.9 refresh=  0.8 interval= 32.0 trigger= 29.1 duration=  3.5 uptime= 10.36%
+    fingers_of_frost   : start= 24.5 refresh=  6.6 interval= 12.2 trigger=  9.6 duration=  1.8 uptime= 14.46%  benefit= 34.53%
+    icicles            : start= 46.1 refresh= 89.5 interval=  6.5 trigger=  2.2 duration=  3.6 uptime= 55.60%
+    icy_veins          : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 51.9 uptime= 35.09%
+    rune_of_power      : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.18%
+  Up-Times:
+     23.28% : Mana Cap                      
+  Procs:
+     29.96981 |   9.90443sec : Brain Freeze
+     29.96981 |   9.90443sec : Brain Freeze from Frostbolt
+     35.60151 |   8.29982sec : Brain Freeze used
+     31.08343 |   9.69440sec : Fingers of Frost
+     15.02265 |  19.03992sec : Fingers of Frost from Frostbolt
+      5.42193 |  60.80800sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.63886 |  26.11888sec : Fingers of Frost from Frozen Orb Tick
+     13.47874 |  20.84242sec : Fingers of Frost wasted due to Winter's Chill
+    213.04410 |   2.72191sec : Winter's Chill stacks applied
+    104.77473 |   2.77832sec : Winter's Chill stacks consumed
+     34.10290 |   8.63196sec : Winter's Chill stacks consumed by Frostbolt
+     70.67183 |   4.11882sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    163692.8 : mana_regen (mana)           (overflow=45.27%)
+  Waiting:  0.00%
+
+Player: freezing_winds troll mage frost 60
+  DPS=6210.15820175748 DPS-Error=10.522573835529581/0.17% DPS-Range=936.3481918934372/15.08%
+  DPR=11.314058472179905 RPS-Out=547.707940728267 RPS-In=545.913417213963 Resource=mana Waiting=0 ApM=48.08265899350206
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  28.5| 10.348sec  DPE= 9919| 0.00%  DPET=8905  DPR=  20  pDPS=   0
+    flurry_bolt                 Count=  85.3|  3.378sec  DPE= 2588|11.89%  DPET=   0  DPR=   0  pDPS= 738  Miss= 0.00%  Hit=  1631|  1403|  1965  Crit=  3253|  2807|  3929|58.98%
+    flurry_icicle               Count=  28.3| 10.378sec  DPE= 2192| 3.34%  DPET=   0  DPR=   0  pDPS= 208  Miss= 0.00%  Hit=  1230|  1057|  1479  Crit=  2458|  2113|  2959|78.90%
+    frostbolt                   Count=  97.2|  3.049sec  DPE= 4639|14.30%  DPET=3139  DPR=   5  pDPS= 889  Miss= 0.00%  Hit=  2013|  1740|  2436  Crit=  4002|  3480|  4872|35.07%
+    frostbolt_icicle            Count=  97.2|  3.040sec  DPE= 1908| 9.98%  DPET=   0  DPR=   0  pDPS= 620  Miss= 0.00%  Hit=  1253|  1057|  1479  Crit=  2449|  2113|  2959|55.27%
+    frozen_orb                  Count=   5.4| 60.699sec  DPE=17605| 0.00%  DPET=15217  DPR=  35  pDPS=   0
+    frozen_orb_bolt             Count= 106.8|  2.623sec  DPE=  898| 5.16%  DPET=   0  DPR=   0  pDPS= 321  Miss= 0.00%  Hit=   703|   549|   768  Crit=  1405|  1097|  1536|27.71%
+    ice_lance                   Count=  97.9|  3.036sec  DPE=10492|55.32%  DPET=9356  DPR=  21  pDPS=3435  Miss= 0.00%  Hit=  5877|  4309|  6937  Crit= 11752|  8617| 13874|78.88%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.659sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking       : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze     : start= 29.1 refresh=  0.4 interval= 10.2 trigger= 10.0 duration=  2.9 uptime= 28.27%
+    chain_reaction   : start=  4.5 refresh= 93.2 interval= 66.5 trigger=  3.0 duration= 62.8 uptime= 95.38%
+    fingers_of_frost : start= 35.0 refresh= 22.6 interval=  8.4 trigger=  5.1 duration=  1.8 uptime= 20.86%  benefit= 54.19%
+    freezing_winds   : start=  5.4 refresh=  0.0 interval= 60.8 trigger= 60.7 duration= 10.8 uptime= 19.69%
+    icicles          : start= 42.0 refresh= 84.7 interval=  7.2 trigger=  2.4 duration=  3.8 uptime= 53.70%
+    icy_veins        : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 54.3 uptime= 36.70%
+    rune_of_power    : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.19%
+  Up-Times:
+     22.44% : Mana Cap                      
+  Procs:
+     29.42392 |  10.03324sec : Brain Freeze
+     29.42392 |  10.03324sec : Brain Freeze from Frostbolt
+     28.51768 |  10.33014sec : Brain Freeze used
+     57.56456 |   5.39728sec : Fingers of Frost
+     26.71951 |  10.71444sec : Fingers of Frost from Freezing Winds
+     14.75407 |  19.17808sec : Fingers of Frost from Frostbolt
+      5.42034 |  60.78151sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.67064 |  26.01531sec : Fingers of Frost from Frozen Orb Tick
+     11.71514 |  23.82136sec : Fingers of Frost wasted due to Winter's Chill
+    170.63568 |   3.37131sec : Winter's Chill stacks applied
+     82.76242 |   3.48792sec : Winter's Chill stacks consumed
+     26.17839 |  10.91751sec : Winter's Chill stacks consumed by Frostbolt
+     56.58403 |   5.11168sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    163584.1 : mana_regen (mana)           (overflow=45.31%)
+  Waiting:  0.00%
+
+Player: frost troll mage frost 60
+  DPS=6245.916822117007 DPS-Error=11.312788142009708/0.18% DPS-Range=952.8846429042705/15.26%
+  DPR=10.712563366760882 RPS-Out=581.3053967398492 RPS-In=579.3686344269488 Resource=mana Waiting=0 ApM=49.18459138001165
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  33.0|  8.974sec  DPE=10037| 0.00%  DPET=9028  DPR=  20  pDPS=   0
+    flurry_bolt                 Count=  98.6|  2.939sec  DPE= 2620|13.85%  DPET=   0  DPR=   0  pDPS= 865  Miss= 0.00%  Hit=  1649|  1403|  1965  Crit=  3289|  2807|  3929|59.21%
+    flurry_icicle               Count=  32.7|  8.988sec  DPE= 2212| 3.88%  DPET=   0  DPR=   0  pDPS= 242  Miss= 0.00%  Hit=  1240|  1057|  1479  Crit=  2483|  2113|  2959|78.75%
+    frostbolt                   Count= 111.9|  2.662sec  DPE= 5070|18.72%  DPET=3674  DPR=   5  pDPS=1171  Miss= 0.00%  Hit=  2270|  1740|  3167  Crit=  4548|  3480|  6333|36.54%
+    frostbolt_icicle            Count= 111.8|  2.649sec  DPE= 1949|11.68%  DPET=   0  DPR=   0  pDPS= 729  Miss= 0.00%  Hit=  1259|  1057|  1479  Crit=  2488|  2113|  2959|56.69%
+    frozen_orb                  Count=   5.4| 60.697sec  DPE=18190| 0.00%  DPET=15678  DPR=  36  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.627sec  DPE=  928| 5.31%  DPET=   0  DPR=   0  pDPS= 331  Miss= 0.00%  Hit=   704|   549|   768  Crit=  1406|  1097|  1536|32.01%
+    ice_lance                   Count=  84.2|  3.529sec  DPE=10319|46.57%  DPET=9236  DPR=  21  pDPS=2908  Miss= 0.00%  Hit=  5778|  4309|  6937  Crit= 11547|  8617| 13874|79.03%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.684sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking       : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze     : start= 33.3 refresh=  0.6 interval=  8.9 trigger=  8.8 duration=  2.7 uptime= 30.49%
+    chain_reaction   : start=  4.5 refresh= 79.6 interval= 67.4 trigger=  3.5 duration= 64.1 uptime= 95.43%
+    fingers_of_frost : start= 25.9 refresh=  7.0 interval= 11.5 trigger=  9.0 duration=  1.8 uptime= 15.27%  benefit= 37.88%
+    icicles          : start= 45.3 refresh=100.5 interval=  6.7 trigger=  2.1 duration=  3.9 uptime= 59.16%
+    icy_veins        : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 51.9 uptime= 35.09%
+    rune_of_power    : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.21%
+    slick_ice        : start=  2.0 refresh= 50.5 interval=180.9 trigger=  4.4 duration= 49.4 uptime= 33.41%
+  Up-Times:
+     21.55% : Mana Cap                      
+  Procs:
+     33.85459 |   8.76162sec : Brain Freeze
+     33.85459 |   8.76162sec : Brain Freeze from Frostbolt
+     32.95550 |   8.97548sec : Brain Freeze used
+     32.85936 |   9.14581sec : Fingers of Frost
+     16.81804 |  16.99437sec : Fingers of Frost from Frostbolt
+      5.42193 |  60.80330sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.61939 |  26.11238sec : Fingers of Frost from Frozen Orb Tick
+     13.17084 |  21.20834sec : Fingers of Frost wasted due to Winter's Chill
+    197.19666 |   2.93908sec : Winter's Chill stacks applied
+     98.30592 |   2.96082sec : Winter's Chill stacks consumed
+     32.87247 |   8.97065sec : Winter's Chill stacks consumed by Frostbolt
+     65.43345 |   4.44963sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    173613.5 : mana_regen (mana)           (overflow=41.96%)
+  Waiting:  0.00%
+
+Player: glacial_fragments troll mage frost 60
+  DPS=5941.888191359312 DPS-Error=10.868351192170477/0.18% DPS-Range=900.0544035574217/15.15%
+  DPR=10.693308597437822 RPS-Out=554.4551419927623 RPS-In=552.5734431531798 Resource=mana Waiting=0 ApM=47.121371745553624
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  31.5|  9.404sec  DPE=10035| 0.00%  DPET=8927  DPR=  20  pDPS=   0
+    flurry_bolt                 Count=  94.2|  3.076sec  DPE= 2619|13.89%  DPET=   0  DPR=   0  pDPS= 825  Miss= 0.00%  Hit=  1648|  1403|  1965  Crit=  3292|  2807|  3929|59.05%
+    flurry_icicle               Count=  31.3|  9.417sec  DPE= 2214| 3.90%  DPET=   0  DPR=   0  pDPS= 232  Miss= 0.00%  Hit=  1242|  1057|  1479  Crit=  2483|  2113|  2959|78.85%
+    frostbolt                   Count= 106.1|  2.811sec  DPE= 4751|16.74%  DPET=3189  DPR=   5  pDPS= 995  Miss= 0.00%  Hit=  2031|  1740|  2436  Crit=  4076|  3480|  4872|36.80%
+    frostbolt_icicle            Count= 106.0|  2.797sec  DPE= 1951|11.64%  DPET=   0  DPR=   0  pDPS= 692  Miss= 0.00%  Hit=  1259|  1057|  1479  Crit=  2488|  2113|  2959|56.76%
+    frozen_orb                  Count=   5.4| 60.690sec  DPE=18075| 0.00%  DPET=15551  DPR=  36  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.626sec  DPE=  923| 5.54%  DPET=   0  DPR=   0  pDPS= 329  Miss= 0.00%  Hit=   703|   549|   768  Crit=  1405|  1097|  1536|31.34%
+    glacial_fragments           Count=  16.3| 17.340sec  DPE= 1346| 1.23%  DPET=   0  DPR=   0  pDPS=  73  Miss= 0.00%  Hit=  1127|   947|  1326  Crit=  2259|  1895|  2653|19.33%
+    ice_lance                   Count=  81.1|  3.655sec  DPE=10573|47.06%  DPET=9368  DPR=  21  pDPS=2796  Miss= 0.00%  Hit=  5777|  4309|  6937  Crit= 11529|  8617| 13874|78.98%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.680sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking       : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze     : start= 31.8 refresh=  0.4 interval=  9.3 trigger=  9.2 duration=  2.9 uptime= 30.58%
+    chain_reaction   : start=  4.8 refresh= 76.2 interval= 63.2 trigger=  3.7 duration= 59.4 uptime= 95.07%
+    fingers_of_frost : start= 25.1 refresh=  7.0 interval= 11.9 trigger=  9.3 duration=  1.8 uptime= 15.20%  benefit= 38.38%
+    icicles          : start= 43.6 refresh= 95.0 interval=  6.9 trigger=  2.2 duration=  4.0 uptime= 58.89%
+    icy_veins        : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 49.9 uptime= 33.72%
+    rune_of_power    : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.18%
+  Up-Times:
+     23.13% : Mana Cap                      
+  Procs:
+     32.24037 |   9.20378sec : Brain Freeze
+     32.24037 |   9.20378sec : Brain Freeze from Frostbolt
+     31.50179 |   9.39546sec : Brain Freeze used
+     32.12277 |   9.38123sec : Fingers of Frost
+     15.98848 |  17.93561sec : Fingers of Frost from Frostbolt
+      5.42273 |  60.80198sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.71156 |  25.80888sec : Fingers of Frost from Frozen Orb Tick
+     12.56973 |  22.14656sec : Fingers of Frost wasted due to Winter's Chill
+    188.47358 |   3.07356sec : Winter's Chill stacks applied
+     93.95669 |   3.09654sec : Winter's Chill stacks consumed
+     31.41915 |   9.38972sec : Winter's Chill stacks consumed by Frostbolt
+     62.53754 |   4.65576sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    165583.2 : mana_regen (mana)           (overflow=44.64%)
+  Waiting:  0.00%
+
+Player: no_lego troll mage frost 60
+  DPS=5861.239603248128 DPS-Error=10.838696288432955/0.18% DPS-Range=886.7805488661634/15.13%
+  DPR=10.54167820055082 RPS-Out=554.6732427213944 RPS-In=552.761029667408 Resource=mana Waiting=0 ApM=47.109439182892885
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  31.4|  9.377sec  DPE=10032| 0.00%  DPET=8926  DPR=  20  pDPS=   0
+    flurry_bolt                 Count=  94.1|  3.068sec  DPE= 2617|14.06%  DPET=   0  DPR=   0  pDPS= 824  Miss= 0.00%  Hit=  1650|  1403|  1965  Crit=  3292|  2807|  3929|58.90%
+    flurry_icicle               Count=  31.2|  9.391sec  DPE= 2215| 3.95%  DPET=   0  DPR=   0  pDPS= 231  Miss= 0.00%  Hit=  1240|  1057|  1479  Crit=  2484|  2113|  2959|78.96%
+    frostbolt                   Count= 106.3|  2.805sec  DPE= 4745|16.98%  DPET=3184  DPR=   5  pDPS= 995  Miss= 0.00%  Hit=  2031|  1740|  2436  Crit=  4075|  3480|  4872|36.62%
+    frostbolt_icicle            Count= 106.1|  2.792sec  DPE= 1950|11.81%  DPET=   0  DPR=   0  pDPS= 692  Miss= 0.00%  Hit=  1260|  1057|  1479  Crit=  2486|  2113|  2959|56.77%
+    frozen_orb                  Count=   5.4| 60.693sec  DPE=18084| 0.00%  DPET=15561  DPR=  36  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.625sec  DPE=  923| 5.62%  DPET=   0  DPR=   0  pDPS= 329  Miss= 0.00%  Hit=   703|   549|   768  Crit=  1404|  1097|  1536|31.34%
+    ice_lance                   Count=  80.9|  3.670sec  DPE=10301|47.59%  DPET=9132  DPR=  21  pDPS=2789  Miss= 0.00%  Hit=  5768|  4309|  6937  Crit= 11532|  8617| 13874|78.97%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.684sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking       : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze     : start= 31.8 refresh=  0.4 interval=  9.3 trigger=  9.2 duration=  2.9 uptime= 30.39%
+    chain_reaction   : start=  4.8 refresh= 76.0 interval= 63.4 trigger=  3.7 duration= 59.8 uptime= 95.04%
+    fingers_of_frost : start= 25.1 refresh=  7.1 interval= 11.8 trigger=  9.2 duration=  1.8 uptime= 15.24%  benefit= 38.53%
+    icicles          : start= 43.6 refresh= 95.1 interval=  6.9 trigger=  2.2 duration=  4.1 uptime= 59.00%
+    icy_veins        : start=  2.0 refresh=  0.0 interval=180.5 trigger=  0.0 duration= 49.9 uptime= 33.75%
+    rune_of_power    : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.18%
+  Up-Times:
+     22.20% : Mana Cap                      
+  Procs:
+     32.20540 |   9.20969sec : Brain Freeze
+     32.20540 |   9.20969sec : Brain Freeze from Frostbolt
+     31.44497 |   9.40390sec : Brain Freeze used
+     32.22249 |   9.32554sec : Fingers of Frost
+     16.04609 |  17.81938sec : Fingers of Frost from Frostbolt
+      5.42074 |  60.79726sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.75566 |  25.82305sec : Fingers of Frost from Frozen Orb Tick
+     12.69607 |  21.91048sec : Fingers of Frost wasted due to Winter's Chill
+    188.18911 |   3.07627sec : Winter's Chill stacks applied
+     93.77870 |   3.10069sec : Winter's Chill stacks consumed
+     31.37306 |   9.40055sec : Winter's Chill stacks consumed by Frostbolt
+     62.40564 |   4.65967sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    165637.6 : mana_regen (mana)           (overflow=44.62%)
+  Waiting:  0.00%
+
+Player: slick_ice troll mage frost 60
+  DPS=6243.590516784248 DPS-Error=11.37512937502696/0.18% DPS-Range=968.9978541383261/15.52%
+  DPR=10.706331704457746 RPS-Out=581.3836213172918 RPS-In=579.5071489401548 Resource=mana Waiting=0 ApM=49.184511829593916
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    flurry                      Count=  32.9|  8.999sec  DPE=10041| 0.00%  DPET=9034  DPR=  20  pDPS=   0
+    flurry_bolt                 Count=  98.5|  2.945sec  DPE= 2619|13.83%  DPET=   0  DPR=   0  pDPS= 864  Miss= 0.00%  Hit=  1649|  1403|  1965  Crit=  3292|  2807|  3929|59.05%
+    flurry_icicle               Count=  32.7|  9.009sec  DPE= 2216| 3.89%  DPET=   0  DPR=   0  pDPS= 243  Miss= 0.00%  Hit=  1241|  1057|  1479  Crit=  2486|  2113|  2959|78.93%
+    frostbolt                   Count= 111.9|  2.658sec  DPE= 5070|18.75%  DPET=3674  DPR=   5  pDPS=1171  Miss= 0.00%  Hit=  2268|  1740|  3167  Crit=  4548|  3480|  6333|36.62%
+    frostbolt_icicle            Count= 111.8|  2.648sec  DPE= 1949|11.68%  DPET=   0  DPR=   0  pDPS= 729  Miss= 0.00%  Hit=  1259|  1057|  1479  Crit=  2489|  2113|  2959|56.68%
+    frozen_orb                  Count=   5.4| 60.714sec  DPE=18199| 0.00%  DPET=15687  DPR=  36  pDPS=   0
+    frozen_orb_bolt             Count= 106.7|  2.622sec  DPE=  929| 5.31%  DPET=   0  DPR=   0  pDPS= 331  Miss= 0.00%  Hit=   703|   549|   768  Crit=  1406|  1097|  1536|32.03%
+    ice_lance                   Count=  84.2|  3.530sec  DPE=10311|46.54%  DPET=9233  DPR=  21  pDPS=2905  Miss= 0.00%  Hit=  5779|  4309|  6937  Crit= 11552|  8617| 13874|78.83%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.677sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking       : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust        : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze     : start= 33.2 refresh=  0.6 interval=  8.9 trigger=  8.8 duration=  2.8 uptime= 30.56%
+    chain_reaction   : start=  4.4 refresh= 79.6 interval= 68.2 trigger=  3.5 duration= 64.7 uptime= 95.41%
+    fingers_of_frost : start= 26.0 refresh=  7.1 interval= 11.5 trigger=  9.0 duration=  1.8 uptime= 15.39%  benefit= 38.14%
+    icicles          : start= 45.4 refresh=100.5 interval=  6.6 trigger=  2.1 duration=  3.9 uptime= 59.22%
+    icy_veins        : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 52.0 uptime= 35.15%
+    rune_of_power    : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.21%
+    slick_ice        : start=  2.0 refresh= 50.4 interval=180.8 trigger=  4.4 duration= 49.5 uptime= 33.47%
+  Up-Times:
+     21.52% : Mana Cap                      
+  Procs:
+     33.81963 |   8.76516sec : Brain Freeze
+     33.81963 |   8.76516sec : Brain Freeze from Frostbolt
+     32.92054 |   8.97941sec : Brain Freeze used
+     33.08741 |   9.09334sec : Fingers of Frost
+     16.98212 |  16.85166sec : Fingers of Frost from Frostbolt
+      5.41756 |  60.83740sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.68772 |  26.13948sec : Fingers of Frost from Frozen Orb Tick
+     13.31585 |  21.07990sec : Fingers of Frost wasted due to Winter's Chill
+    197.06476 |   2.93937sec : Winter's Chill stacks applied
+     98.20858 |   2.96228sec : Winter's Chill stacks consumed
+     32.85141 |   8.97281sec : Winter's Chill stacks consumed by Frostbolt
+     65.35717 |   4.45149sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    173653.8 : mana_regen (mana)           (overflow=41.94%)
+  Waiting:  0.00%
+
+Player: temporal_warp troll mage frost 60
+  DPS=5972.720712759802 DPS-Error=11.41083578858399/0.19% DPS-Range=983.3749765266471/16.46%
+  DPR=9.102457487369323 RPS-Out=654.6846908220112 RPS-In=651.4835369336558 Resource=mana Waiting=0 ApM=47.536863577400254
+  Talents: 2032021
+  Covenant: invalid
+  Core Stats:    strength=199|199(199)  agility=308|308(308)  stamina=434|414(414)  intellect=2359|2247(2247)  spirit=0|0(0)  health=8680|8280  mana=50000|50000
+  Generic Stats: mastery=22.29%|22.29%(500)  versatility=12.50%|12.50%(500)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=2359|2247(0)  hit=15.00%|15.00%(0)  crit=19.29%|19.29%(500)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%  manareg=1000|1000(0)
+  Attack Stats:  power=0|0(0)  hit=7.50%|7.50%(0)  crit=19.29%|19.29%(500)  expertise=7.50%|7.50%(0)  haste=15.15%|15.15%(500)  speed=15.15%|15.15%
+  Defense Stats: armor=0|0(0) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=0.00%|0.00%(0)  block=0.00%|0.00%(0) crit=0.00%|0.00%  versatility=6.25%|6.25%(500)
+  Priorities (actions.precombat):
+    flask/food/augmentation/arcane_intellect/summon_water_elemental/snapshot_stats/frostbolt
+  Priorities (actions.default):
+    counterspell/call_action_list,name=cds/call_action_list,name=essences/call_action_list,name=aoe,if=active_enemies>=5
+    call_action_list,name=st,if=active_enemies<5/call_action_list,name=movement
+  Priorities (actions.cds):
+    potion,if=prev_off_gcd.icy_veins|fight_remains<30/mirrors_of_torment,if=soulbind.wasteland_propriety.enabled/deathborne
+    rune_of_power,if=cooldown.icy_veins.remains>15&buff.rune_of_power.down/icy_veins,if=buff.rune_of_power.down
+    time_warp,if=runeforge.temporal_warp.equipped&buff.exhaustion.up&(prev_off_gcd.icy_veins|fight_remains<30)/use_items/blood_fury/berserking
+    lights_judgment/fireblood/ancestral_call/bag_of_tricks
+  Priorities (actions.st):
+    flurry,if=(remaining_winters_chill=0|debuff.winters_chill.down)&(prev_gcd.1.ebonbolt|buff.brain_freeze.react&(prev_gcd.1.radiant_spark|prev_gcd.1.glacial_spike|prev_gcd.1.frostbolt|(debuff.mirrors_of_torment.up|buff.expanded_potential.react|buff.freezing_winds.up)&buff.fingers_of_frost.react=0))
+    frozen_orb/blizzard,if=buff.freezing_rain.up|active_enemies>=3|active_enemies>=2&!runeforge.cold_front.equipped
+    ray_of_frost,if=remaining_winters_chill=1&debuff.winters_chill.remains
+    glacial_spike,if=remaining_winters_chill&debuff.winters_chill.remains>cast_time+travel_time
+    ice_lance,if=remaining_winters_chill&remaining_winters_chill>buff.fingers_of_frost.react&debuff.winters_chill.remains>travel_time/comet_storm
+    ice_nova/radiant_spark,if=buff.freezing_winds.up&active_enemies=1/ice_lance,if=buff.fingers_of_frost.react|debuff.frozen.remains>travel_time
+    ebonbolt/radiant_spark,if=(!runeforge.freezing_winds.equipped|active_enemies>=2)&(buff.brain_freeze.react|soulbind.combat_meditation.enabled)
+    shifting_power,if=active_enemies>=3
+    shifting_power,line_cd=60,if=(soulbind.field_of_blossoms.enabled|soulbind.grove_invigoration.enabled)&(!talent.rune_of_power.enabled|buff.rune_of_power.down&cooldown.rune_of_power.remains>16)
+    mirrors_of_torment/frost_nova,if=runeforge.grisly_icicle.equipped&target.level<=level&debuff.frozen.down
+    arcane_explosion,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_arcane.down
+    fire_blast,if=runeforge.disciplinary_command.equipped&cooldown.buff_disciplinary_command.ready&buff.disciplinary_command_fire.down
+    glacial_spike,if=buff.brain_freeze.react/frostbolt
+  Actions:
+    arcane_explosion            Count=   7.3| 43.478sec  DPE= 1719| 0.70%  DPET=1518  DPR=   0  pDPS=  42  Miss= 0.00%  Hit=  1438|  1293|  1811  Crit=  2876|  2586|  3621|19.53%
+    berserking                  Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    fire_blast                  Count=   9.5| 32.815sec  DPE= 2395| 1.28%  DPET=2076  DPR=   5  pDPS=  76  Miss= 0.00%  Hit=  2002|  1705|  2388  Crit=  4021|  3411|  4775|19.47%
+    flurry                      Count=  29.1| 10.089sec  DPE=10759| 0.00%  DPET=9558  DPR=  22  pDPS=   0
+    flurry_bolt                 Count=  87.0|  3.296sec  DPE= 2806|13.66%  DPET=   0  DPR=   0  pDPS= 816  Miss= 0.00%  Hit=  1653|  1403|  1965  Crit=  3604|  2807|  4519|59.07%
+    flurry_icicle               Count=  28.9| 10.113sec  DPE= 2382| 3.85%  DPET=   0  DPR=   0  pDPS= 230  Miss= 0.00%  Hit=  1248|  1057|  1479  Crit=  2693|  2113|  3402|79.08%
+    frostbolt                   Count=  98.5|  2.999sec  DPE= 5016|16.28%  DPET=3365  DPR=   5  pDPS= 973  Miss= 0.00%  Hit=  2037|  1740|  2436  Crit=  4465|  3480|  5602|36.68%
+    frostbolt_icicle            Count=  98.4|  3.013sec  DPE= 2069|11.40%  DPET=   0  DPR=   0  pDPS= 681  Miss= 0.00%  Hit=  1264|  1057|  1479  Crit=  2701|  2113|  3402|56.47%
+    frozen_orb                  Count=   5.4| 60.717sec  DPE=18605| 0.00%  DPET=16006  DPR=  37  pDPS=   0
+    frozen_orb_bolt             Count= 106.8|  2.625sec  DPE=  949| 5.68%  DPET=   0  DPR=   0  pDPS= 339  Miss= 0.00%  Hit=   704|   549|   768  Crit=  1511|  1097|  1766|30.40%
+    ice_lance                   Count=  76.4|  3.902sec  DPE=11015|47.15%  DPET=9759  DPR=  22  pDPS=2816  Miss= 0.00%  Hit=  5750|  4309|  6937  Crit= 12458|  8617| 15955|78.79%
+    icy_veins                   Count=   2.0|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+    rune_of_power               Count=   6.6| 46.670sec  DPE=    0| 0.00%  DPET=   0  DPR=   0  pDPS=   0
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    berserking           : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 12.0 uptime=  8.12%  benefit= 12.50%
+    bloodlust            : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.53%
+    brain_freeze         : start= 29.4 refresh=  0.4 interval= 10.1 trigger= 10.0 duration=  3.1 uptime= 30.35%
+    chain_reaction       : start=  5.9 refresh= 70.4 interval= 52.9 trigger=  3.9 duration= 47.7 uptime= 93.84%
+    disciplinary_command : start=  9.5 refresh=  0.0 interval= 32.8 trigger= 32.8 duration= 19.4 uptime= 61.76%
+    fingers_of_frost     : start= 24.6 refresh=  6.5 interval= 12.1 trigger=  9.5 duration=  1.8 uptime= 14.45%  benefit= 39.46%
+    icicles              : start= 41.1 refresh= 87.5 interval=  7.4 trigger=  2.3 duration=  4.1 uptime= 56.69%
+    icy_veins            : start=  2.0 refresh=  0.0 interval=180.6 trigger=  0.0 duration= 48.8 uptime= 33.02%
+    rune_of_power        : start=  8.6 refresh=  0.0 interval= 36.5 trigger= 39.6 duration= 14.7 uptime= 42.18%
+  Up-Times:
+     17.10% : Mana Cap                      
+  Procs:
+     29.76838 |   9.93687sec : Brain Freeze
+     29.76838 |   9.93687sec : Brain Freeze from Frostbolt
+     29.06953 |  10.12783sec : Brain Freeze used
+     31.08065 |   9.67406sec : Fingers of Frost
+     15.04966 |  18.90054sec : Fingers of Frost from Frostbolt
+      5.42233 |  60.79900sec : Fingers of Frost from Frozen Orb Initial Impact
+     10.60866 |  26.16071sec : Fingers of Frost from Frozen Orb Tick
+     11.45093 |  23.87693sec : Fingers of Frost wasted due to Winter's Chill
+    173.93882 |   3.30743sec : Winter's Chill stacks applied
+     86.68057 |   3.33298sec : Winter's Chill stacks consumed
+     28.99523 |  10.12207sec : Winter's Chill stacks consumed by Frostbolt
+     57.68534 |   5.01344sec : Winter's Chill stacks consumed by Ice Lance
+  Gains:
+    195229.1 : mana_regen (mana)           (overflow=34.72%)
+  Waiting:  0.00%
+
+
+ *** Targets *** 
+
+Target: Fluffy_Pillow humanoid enemy unknown 63
+  DTPS=54687.27426632116 DTPS-Error=54.96255117609389/0.10% DTPS-Range=4164.199027415874/7.61%
+  DPR=0 RPS-Out=51020.47769950808 RPS-In=0 Resource=health Waiting=0 ApM=0
+  Talents: 0000000
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|17958817  mana=0|0
+  Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
+  Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
+  Defense Stats: armor=1071|1071(1071) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=3.00%|3.00%(0)  block=3.00%|3.00%(0) crit=0.00%|0.00%  versatility=0.00%|0.00%(0)
+  Priorities (actions.precombat):
+    snapshot_stats
+  Priorities (actions.default):
+
+  Actions:
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
+  Dynamic Buffs:
+    Health Decade (0 - 10)   : start=  0.8 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 59.3 uptime= 14.05%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.8 uptime=  8.83%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 27.6 uptime=  9.25%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.1 uptime=  9.50%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 32.6 uptime= 11.03%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 37.7 uptime= 12.76%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 35.5 uptime= 12.00%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 29.8 uptime= 10.08%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 19.6 uptime=  6.63%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 19.2 uptime=  5.88%
+    winters_chill            : start= 32.9 refresh= 65.7 interval=  9.0 trigger=  2.9 duration=  2.4 uptime= 26.26%
+    winters_chill            : start= 30.8 refresh= 61.5 interval=  9.6 trigger=  3.1 duration=  2.4 uptime= 24.84%
+    winters_chill            : start= 32.9 refresh= 65.7 interval=  9.0 trigger=  2.9 duration=  2.4 uptime= 26.24%
+    winters_chill            : start= 28.5 refresh= 56.9 interval= 10.3 trigger=  3.4 duration=  2.4 uptime= 22.87%
+    winters_chill            : start= 31.4 refresh= 62.8 interval=  9.4 trigger=  3.1 duration=  2.4 uptime= 25.41%
+    winters_chill            : start= 29.0 refresh= 57.9 interval= 10.1 trigger=  3.3 duration=  2.4 uptime= 23.55%
+    winters_chill            : start= 29.0 refresh= 57.9 interval= 10.1 trigger=  3.3 duration=  2.4 uptime= 23.53%
+    winters_chill            : start= 35.5 refresh= 71.0 interval=  8.3 trigger=  2.7 duration=  2.4 uptime= 28.54%
+    winters_chill            : start= 31.4 refresh= 62.7 interval=  9.4 trigger=  3.1 duration=  2.4 uptime= 25.35%
+  Waiting:  0.00%
+
+
+Baseline Performance:
+  No-Networking = true
+  RNG Engine    = xoshiro256+
+  Iterations    = 2533 (686, 146, 121, 118, 78, 180, 117, 115, 160, 75, 114, 115, 148, 125, 118, 117)
+  TotalEvents   = 40457053
+  MaxEventQueue = 572
+  TargetHealth  = 17958818
+  SimSeconds    = 754238.654
+  CpuSeconds    = 51.1875
+  WallSeconds   = 13.912026500000001
+  InitSeconds   = 0.0454757
+  MergeSeconds  = 0.5347459
+  AnalyzeSeconds= 0.0092183
+  SpeedUp       = 14828
+  EndTime       = 2020-11-03 17:29:41-0000 (1604424581)
+
+
+Waiting:
+    All players active 100% of the time.
+
