@@ -7,4 +7,3 @@
 .\simc.exe .\fire\races-horde.simc
 .\simc.exe .\fire\covenant-abilities.simc
 .\simc.exe .\fire\relics.simc
-.\simc.exe .\fire\stats.simc

@@ -7,4 +7,3 @@
 .\simc.exe .\affliction\races-horde.simc
 .\simc.exe .\affliction\covenant-abilities.simc
 .\simc.exe .\affliction\relics.simc
-.\simc.exe .\affliction\stats.simc
