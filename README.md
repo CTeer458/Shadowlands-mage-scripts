@@ -6,7 +6,7 @@ Run run-scripts.bat with your simc executable in the top level directory
 * results go to ./spec/target/html or ./spec/target/json
 
 ## Known issues
-* Aff + destrro APLs are unfinished
+* Aff + destro APLs are unfinished
 * Aff + destro scripts are wip
 
 ## Things
