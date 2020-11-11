@@ -1,6 +1,7 @@
 .\simc.exe .\arcane\legendaries.simc
 .\simc.exe .\arcane\legendaries-cov.simc
 .\simc.exe .\arcane\soulbinds-16.simc
+.\simc.exe .\arcane\soulbinds-22.simc
 .\simc.exe .\arcane\soulbinds-25.simc
 .\simc.exe .\arcane\soulbinds-max.simc
 .\simc.exe .\arcane\races-alli.simc

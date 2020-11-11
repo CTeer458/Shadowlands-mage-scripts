@@ -1,6 +1,7 @@
 .\simc.exe .\fire\legendaries.simc
 .\simc.exe .\fire\legendaries-cov.simc
 .\simc.exe .\fire\soulbinds-16.simc
+.\simc.exe .\fire\soulbinds-22.simc
 .\simc.exe .\fire\soulbinds-25.simc
 .\simc.exe .\fire\soulbinds-max.simc
 .\simc.exe .\fire\races-alli.simc
