@@ -2,6 +2,7 @@
 .\simc.exe .\affliction\legendaries-cov.simc
 .\simc.exe .\affliction\soulbinds-16.simc
 .\simc.exe .\affliction\soulbinds-25.simc
+.\simc.exe .\affliction\soulbinds-22.simc
 .\simc.exe .\affliction\soulbinds-max.simc
 .\simc.exe .\affliction\races-alli.simc
 .\simc.exe .\affliction\races-horde.simc
