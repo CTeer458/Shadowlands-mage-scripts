@@ -47,39 +47,44 @@ actions.precombat+=/incinerate,if=!talent.soul_fire.enabled
 
 # Executed every time the actor is available.
 actions=call_action_list,name=havoc,if=havoc_active&active_enemies<5-talent.inferno.enabled+(talent.inferno.enabled&talent.internal_combustion.enabled)
+actions+=/soul_fire,cycle_targets=1,if=refreshable&soul_shard<=4&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>remains)
 actions+=/cataclysm,if=!(pet.infernal.active&dot.immolate.remains+1>pet.infernal.remains)|spell_targets.cataclysm>1
 actions+=/call_action_list,name=aoe,if=active_enemies>2
-actions+=/soul_fire,cycle_targets=1,if=refreshable&soul_shard<=4&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>remains)
 actions+=/immolate,cycle_targets=1,if=refreshable&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>remains)
 actions+=/immolate,if=talent.internal_combustion.enabled&action.chaos_bolt.in_flight&remains<duration*0.5
 actions+=/call_action_list,name=cds
 actions+=/channel_demonfire
+actions+=/scouring_tithe
+actions+=/decimating_bolt
 actions+=/havoc,cycle_targets=1,if=!(target=self.target)&(dot.immolate.remains>dot.immolate.duration*0.5|!talent.internal_combustion.enabled)
+actions+=/impending_catastrophe
+actions+=/soul_rot
 actions+=/variable,name=pool_soul_shards,value=active_enemies>1&cooldown.havoc.remains<=10|cooldown.summon_infernal.remains<=15&talent.dark_soul_instability.enabled&cooldown.dark_soul_instability.remains<=15|talent.dark_soul_instability.enabled&cooldown.dark_soul_instability.remains<=15&(cooldown.summon_infernal.remains>target.time_to_die|cooldown.summon_infernal.remains+cooldown.summon_infernal.duration>target.time_to_die)
 actions+=/conflagrate,if=buff.backdraft.down&soul_shard>=1.5-0.3*talent.flashover.enabled&!variable.pool_soul_shards
 actions+=/chaos_bolt,if=buff.dark_soul_instability.up
 actions+=/chaos_bolt,if=buff.backdraft.up&!variable.pool_soul_shards&!talent.eradication.enabled
 actions+=/chaos_bolt,if=!variable.pool_soul_shards&talent.eradication.enabled&(debuff.eradication.remains<cast_time|buff.backdraft.up)
 actions+=/shadowburn,if=!variable.pool_soul_shards|soul_shard>=4.5
-actions+=/scouring_tithe
-actions+=/soul_rot
-actions+=/impending_catastrophe
-actions+=/decimating_bolt
 actions+=/chaos_bolt,if=(soul_shard>=4.5-0.2*active_enemies)
 actions+=/conflagrate,if=charges>1
 actions+=/incinerate
 
+
 actions.aoe=rain_of_fire,if=pet.infernal.active&(!cooldown.havoc.ready|active_enemies>3)
+actions.aoe+=/soul_rot
 actions.aoe+=/channel_demonfire,if=dot.immolate.remains>cast_time
 actions.aoe+=/immolate,cycle_targets=1,if=remains<5&(!talent.cataclysm.enabled|cooldown.cataclysm.remains>remains)
 actions.aoe+=/call_action_list,name=cds
 actions.aoe+=/havoc,cycle_targets=1,if=!(target=self.target)&active_enemies<4
 actions.aoe+=/rain_of_fire
 actions.aoe+=/havoc,cycle_targets=1,if=!(self.target=target)
+actions.aoe+=/decimating_bolt,if=(soulbind.lead_by_example.enabled||!talent.fire_and_brimstone.enabled)
 actions.aoe+=/incinerate,if=talent.fire_and_brimstone.enabled&buff.backdraft.up&soul_shard<5-0.2*active_enemies
 actions.aoe+=/soul_fire
 actions.aoe+=/conflagrate,if=buff.backdraft.down
 actions.aoe+=/shadowburn,if=target.health.pct<20
+actions.aoe+=/scouring_tithe,if=!(talent.fire_and_brimstone.enabled|talent.inferno.enabled)
+actions.aoe+=/impending_catastrophe,if=!(talent.fire_and_brimstone.enabled|talent.inferno.enabled)
 actions.aoe+=/incinerate
 
 actions.cds=summon_infernal
@@ -91,7 +96,9 @@ actions.cds+=/fireblood,if=pet.infernal.active
 actions.cds+=/use_items,if=pet.infernal.active|target.time_to_die<20
 
 actions.havoc=conflagrate,if=buff.backdraft.down&soul_shard>=1&soul_shard<=4
-actions.havoc+=/soul_fire
+actions.havoc+=/soul_fire,if=cast_time<havoc_remains
+actions.havoc+=/decimating_bolt,if=cast_time<havoc_remains&soulbind.lead_by_example.enabled
+actions.havoc+=/scouring_tithe
 actions.havoc+=/immolate,if=talent.internal_combustion.enabled&remains<duration*0.5|!talent.internal_combustion.enabled&refreshable
 actions.havoc+=/chaos_bolt,if=cast_time<havoc_remains
 actions.havoc+=/shadowburn
