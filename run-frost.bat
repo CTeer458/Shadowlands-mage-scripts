@@ -8,3 +8,4 @@
 .\simc.exe .\frost\races-horde.simc
 .\simc.exe .\frost\covenant-abilities.simc
 .\simc.exe .\frost\relics.simc
+.\simc.exe .\frost\trinkets.simc

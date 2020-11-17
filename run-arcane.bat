@@ -8,3 +8,4 @@
 .\simc.exe .\arcane\races-horde.simc
 .\simc.exe .\arcane\covenant-abilities.simc
 .\simc.exe .\arcane\relics.simc
+.\simc.exe .\arcane\trinkets.simc

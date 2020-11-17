@@ -8,3 +8,4 @@
 .\simc.exe .\destruction\races-horde.simc
 .\simc.exe .\destruction\covenant-abilities.simc
 .\simc.exe .\destruction\relics.simc
+.\simc.exe .\destruction\trinkets.simc

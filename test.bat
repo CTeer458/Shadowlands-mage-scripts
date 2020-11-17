@@ -1,4 +1,3 @@
-
-.\simc.exe .\frost\soulbinds-16.simc
-.\simc.exe .\frost\soulbinds-22.simc
-.\simc.exe .\frost\soulbinds-25.simc
+.\simc.exe .\fire\trinkets.simc
+.\simc.exe .\frost\trinkets.simc
+.\simc.exe .\arcane\trinkets.simc

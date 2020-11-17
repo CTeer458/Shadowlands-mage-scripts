@@ -1,9 +1,0 @@
-.\simc.exe .\shadow\legendaries.simc
-.\simc.exe .\shadow\legendaries-cov.simc
-.\simc.exe .\shadow\soulbinds-16.simc
-.\simc.exe .\shadow\soulbinds-25.simc
-.\simc.exe .\shadow\soulbinds-max.simc
-.\simc.exe .\shadow\races-alli.simc
-.\simc.exe .\shadow\races-horde.simc
-.\simc.exe .\shadow\covenant-abilities.simc
-.\simc.exe .\shadow\relics.simc
